@@ -1,0 +1,6 @@
+development:
+  google_apps:
+    client_id: <%= ENV['GAPPS_ID'] %>
+    secret: <%= ENV['GAPPS_SECRET'] %>
+    domain: <%= ENV['GAPPS_DOMAIN'] %>
+

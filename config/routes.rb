@@ -1,3 +1,8 @@
 Help::Application.routes.draw do
-  root :to => 'visitors#new'
+
+  root :to => 'home#index'
+
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/failure', to: 'sessions#failure'
+
 end
