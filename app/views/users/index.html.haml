@@ -1,0 +1,9 @@
+%h1.text-danger
+  %i.glyphicon.glyphicon-heart
+  Best supporters!
+%ol.users.col-md-6.col-md-offset-3
+  = render users
+.col-md-12
+  = link_to root_path, class: 'btn btn-primary' do
+    %i.glyphicon.glyphicon-fire
+    Back to homepage

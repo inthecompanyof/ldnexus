@@ -1,3 +1,3 @@
 class UsersController < ApplicationController
-  expose_decorated(:users){ User.order(:supports_count) }
+  expose_decorated(:users){ User.order(supports_count: :desc) }
 end

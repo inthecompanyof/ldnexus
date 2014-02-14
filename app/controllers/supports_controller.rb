@@ -11,7 +11,7 @@ class SupportsController < ApplicationController
 
 
   def finish
-    support_finish = FinishSupport.new(support)
+    support_finish = FinishSupport.new(current_user.object, support)
     support_finish.commence!
     redirect_to root_path, flash: { notice: "Finished helping. Awesome!" }
   end

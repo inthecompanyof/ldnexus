@@ -1,0 +1,15 @@
+.users {
+  h1 {
+    text-align: center;
+    font-size: $big_font;
+  }
+  ol {
+    font-size: $small_font;
+    li:first-child {
+      @extend .text-success;
+    }
+    li:first-child + li {
+      @extend .text-primary;
+    }
+  }
+}
