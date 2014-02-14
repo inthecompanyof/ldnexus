@@ -11,18 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140213150940) do
+ActiveRecord::Schema.define(version: 20140213165333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "supports", force: true do |t|
+  create_table "skills", force: true do |t|
     t.integer  "user_id"
     t.integer  "topic_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "skills", ["topic_id"], name: "index_skills_on_topic_id", using: :btree
+  add_index "skills", ["user_id"], name: "index_skills_on_user_id", using: :btree
+
+  create_table "supports", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "topic_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "receiver_id"
+  end
+
+  add_index "supports", ["receiver_id"], name: "index_supports_on_receiver_id", using: :btree
   add_index "supports", ["topic_id"], name: "index_supports_on_topic_id", using: :btree
   add_index "supports", ["user_id"], name: "index_supports_on_user_id", using: :btree
 
@@ -30,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140213150940) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "skills_count", default: 0
   end
 
   create_table "users", force: true do |t|
@@ -38,6 +51,7 @@ ActiveRecord::Schema.define(version: 20140213150940) do
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "skills_count"
   end
 
 end

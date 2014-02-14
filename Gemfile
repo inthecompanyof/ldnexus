@@ -17,6 +17,9 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'pg'
 gem 'konf'
+gem 'draper'
+gem 'decent_exposure'
+gem 'decent_decoration'
 
 group :development do
   gem 'better_errors'
