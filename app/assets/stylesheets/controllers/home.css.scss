@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .home {
+  h1 {
+    text-align: center;
+    font-size: $big_font * 2;
+  }
   .selection_buttons {
     margin-top: 40px;
     text-align: center;
@@ -9,6 +13,18 @@
       font-size: $big_font;
       margin-left: 10px;
       margin-right: 10px;
+    }
+  }
+  h2 {
+    margin-top: 60px;
+    font-size: $small_font;
+    text-align: center;
+  }
+  ul.supports {
+    list-style: none;
+    text-align: center;
+    li {
+      font-size: $small_font / 2;
     }
   }
 }

@@ -1,0 +1,6 @@
+%h1
+  - if support.done?
+    = render support
+  - else
+    = render "not_done", not_done: support
+    = link_to "This is done!", finish_support_path(support), method: :post, class: 'btn btn-success'

@@ -6,6 +6,11 @@ Help::Application.routes.draw do
     resources :supports
   end
   resources :users
+  resources :supports do
+    member do
+      post :finish
+    end
+  end
 
   root :to => 'home#index'
 

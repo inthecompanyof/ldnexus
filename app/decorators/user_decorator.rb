@@ -1,7 +1,7 @@
 class UserDecorator < Draper::Decorator
   decorates :user
 
-  delegate :to_s, :email
+  delegate :to_s, :email, :id
 
   def topic_class(topic)
     object.helps_with?(topic.object) ? "btn-success" : "btn-danger"
