@@ -1,3 +1,7 @@
 .selection_buttons
-  = link_to "I need help", topics_path, class: 'btn btn-danger'
-  = link_to "I can help", skills_path, class: 'btn btn-primary'
+  = link_to topics_path, class: 'btn btn-danger' do
+    %i.glyphicon.glyphicon-fire
+    I need help
+  = link_to skills_path, class: 'btn btn-primary' do
+    I can help
+    %i.glyphicon.glyphicon-heart

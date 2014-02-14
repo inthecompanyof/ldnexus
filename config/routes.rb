@@ -3,6 +3,7 @@ Help::Application.routes.draw do
   resources :skills
   resources :topics do
     resources :skills
+    resources :supports
   end
   resources :users
 

@@ -9,7 +9,7 @@
 # See http://railsapps.github.io/rails-environment-variables.html
 
 
-['Server setup', 'Rails apps', 'Databases', 'Project reviews'].each do |topic|
-  Topic.create title: topic
+['Server setup', 'Rails apps', 'SQL databases', 'Mongo', 'Project reviews', 'Mentoring new people'].each do |topic|
+  Topic.create(title: topic) unless Topic.find_by(title: topic)
 end
 
