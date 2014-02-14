@@ -1,7 +1,7 @@
 class Topic < ActiveRecord::Base
 
   has_many :users, through: :skills
-  has_many :skills, counter_cache: true
+  has_many :skills
 
   def to_s
     title

@@ -1,7 +1,10 @@
 Help::Application.routes.draw do
 
   resources :skills
-  resources :topics
+  resources :topics do
+    resources :skills
+  end
+  resources :users
 
   root :to => 'home#index'
 

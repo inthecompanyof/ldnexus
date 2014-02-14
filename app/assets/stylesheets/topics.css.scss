@@ -1,18 +1,16 @@
 // Place all the styles related to the topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.topics {
-  ul {
+  ul.topic_list {
     list-style: none;
     margin-left: 0;
     padding-left: 0;
     li {
       margin-bottom: 20px;
       font-size: 28px;
-      a {
+      a, input {
         font-size: 28px;
         width: 100%;
       }
     }
   }
-}

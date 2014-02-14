@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   include StaticRoutes
   before_filter :login_required
+  helper_method :logged_in?, :current_user
 
   private
 
@@ -17,7 +18,11 @@ class ApplicationController < ActionController::Base
 
   def current_user
     return @current_user if defined?(@current_user)
-    @current_user ||= session[:user_id] && User.find(session[:user_id])
+    @current_user ||= begin
+      if session[:user_id] && (user = User.find(session[:user_id]))
+        UserDecorator.decorate(user)
+      end
+    end
   end
 
 end
