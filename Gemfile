@@ -28,3 +28,7 @@ group :development do
   gem 'quiet_assets'
   gem 'rails_layout'
 end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0.beta'
+end

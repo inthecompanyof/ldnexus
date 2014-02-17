@@ -1,17 +1,33 @@
 class AskForSupport
-  attr_accessor :supporter, :receiver, :topic
+
+  attr_accessor :supporter_id, :receiver, :topic
 
   def initialize receiver, topic, support_params
     self.receiver = receiver
     self.topic = topic
-    self.supporter = find_supporter(support_params)
-    new_support.topic = topic
-    new_support.receiver = receiver
+    self.supporter_id = support_params[:user_id]
   end
 
   def commence!
+    setup_support
     new_support.save!
     deliver_email
+  end
+
+  def setup_support
+
+    new_support.user = supporter
+    new_support.topic = topic
+    new_support.receiver = receiver
+
+  end
+
+  def new_support
+    @new_supprot ||= Support.new
+  end
+
+  def supporter
+    @supporter ||= User.find(supporter_id)
   end
 
   private
@@ -21,12 +37,6 @@ class AskForSupport
     email.deliver
   end
 
-  def find_supporter(params)
-    User.find(params[:user_id])
-  end
 
-  def new_support
-    @new_supprot ||= supporter.supports.new
-  end
 
 end

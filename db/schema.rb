@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140214170533) do
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "skills_count"
+    t.integer  "skills_count",   default: 0
     t.integer  "supports_count", default: 0
   end
 
