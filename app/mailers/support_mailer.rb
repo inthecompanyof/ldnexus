@@ -3,6 +3,6 @@ class SupportMailer < ActionMailer::Base
 
   def help_me(support)
     @support = support
-    mail subject: "#{support.receiver} needs help with #{support.topic}", to: support.user
+    mail subject: "#{support.receiver} needs help with #{support.topic}", to: support.user.email
   end
 end
