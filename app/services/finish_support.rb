@@ -9,8 +9,7 @@ class FinishSupport
 
   def commence!
     reasign_user
-    support.done = true
-    support.save!
+    finish_support
     update_counter
   end
 
@@ -18,6 +17,11 @@ class FinishSupport
 
   def reasign_user
     support.user = user
+  end
+
+  def finish_support
+    support.done = true
+    support.save!
   end
 
   def update_counter

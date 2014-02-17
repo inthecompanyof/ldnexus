@@ -10,8 +10,12 @@ class RegisterUser
 
   def commence! # nakurwiam węgorza
     Rails.logger.info "na na na na na na"
-    self.user = klass.new(data)
-    self.user.save!
+    self.user = build_new_user
+    user.save!
+  end
+
+  def build_new_user
+    klass.new(data)
   end
 
 end

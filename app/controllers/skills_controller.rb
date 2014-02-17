@@ -9,8 +9,8 @@ class SkillsController < ApplicationController
   end
 
   def create
-    skill_registration = SkillRegistraion.new(current_user.object, topic)
-    skill_registration.toggle!
+    skill_registration = SkillRegistration.new(current_user.object, topic)
+    skill_registration.commence!
     redirect_to skills_path
   end
 end

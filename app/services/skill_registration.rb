@@ -1,5 +1,5 @@
 #registers users skill in given topic
-class SkillRegistraion
+class SkillRegistration
 
   attr_accessor :user, :topic
 
@@ -8,7 +8,7 @@ class SkillRegistraion
     self.topic = topic
   end
 
-  def toggle!
+  def commence!
     if user.helps_with?(topic)
       destroy_skill
     else
