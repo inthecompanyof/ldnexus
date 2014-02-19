@@ -3,7 +3,4 @@
     %h2 Click on the topics you can help with:
     %ul.topic_list
       = render partial: 'topic', collection: topics
-  .col-md-12
-    = link_to root_path, class: 'btn btn-primary' do
-      %i.glyphicon.glyphicon-fire
-      Back to homepage
+  = render 'layouts/back_to_home'
