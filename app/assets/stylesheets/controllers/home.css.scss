@@ -10,9 +10,12 @@
     margin-top: 40px;
     text-align: center;
     a {
-      font-size: $big_font;
       margin-left: 10px;
       margin-right: 10px;
+      span {
+        display: block;
+        font-size: $big_font;
+      }
     }
   }
   h2 {
