@@ -8,6 +8,6 @@
         times
 %h3 Support history
 %ul.supports.row
-  - supports[0..0].each do |support|
+  - supports.each do |support|
     %li.col-md-6= render support
 = render 'layouts/back_to_home'
