@@ -15,5 +15,7 @@ Bundler.require(:default, Rails.env)
 module Help
   class Application < Rails::Application
     config.action_controller.include_all_helpers = true
+
+    config.action_mailer.default_url_options = { host: AppConfig.domain }
   end
 end
