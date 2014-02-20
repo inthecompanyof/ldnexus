@@ -7,9 +7,15 @@
     font-size: $small_font;
     li:first-child {
       @extend .text-success;
+      a {
+        @extend .text-success;
+      }
     }
     li:first-child + li {
       @extend .text-primary;
+      a {
+        @extend .text-primary;
+      }
     }
   }
   .user_header {
