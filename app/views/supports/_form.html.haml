@@ -7,3 +7,4 @@
       = f.input :user_id, as: :hidden, input_html: { value: supporter.id }
       = f.submit "Ask #{supporter} for help", class: 'btn btn-primary'
       = link_to "Select another supporter", "", class: 'btn btn-danger'
+  = render 'layouts/back_to_home'
