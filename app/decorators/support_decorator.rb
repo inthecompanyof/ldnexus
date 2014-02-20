@@ -24,7 +24,7 @@ class SupportDecorator < Draper::Decorator
   end
 
   def finish_button
-    unless done?
+    unless done? or support.receiver == h.current_user
       icon = h.content_tag(:i, "", class: 'glyphicon glyphicon-ok')
       h.link_to h.raw("#{icon} Mark this as done!"), h.finish_support_path(object), method: :post, class: 'btn btn-success', confirm: "Are you sure you are done helping? This action will also set you as a supporter for this issue."
     end
