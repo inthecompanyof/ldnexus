@@ -6,6 +6,6 @@ class Support < ActiveRecord::Base
 
   scope :done, -> { where(done: true) }
   scope :not_done, -> { where(done: false) }
-  default_scope -> { order(:created_at) }
+  default_scope -> { order(created_at: :desc) }
 
 end
