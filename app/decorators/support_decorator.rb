@@ -16,7 +16,7 @@ class SupportDecorator < Draper::Decorator
   end
 
   def state_summary
-    done? ? "asked for help" : "received help from"
+    !done? ? "asked for help" : "received help from"
   end
 
   def finish_button
