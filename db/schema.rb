@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140214170533) do
+ActiveRecord::Schema.define(version: 20140220103325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140214170533) do
     t.datetime "updated_at"
     t.integer  "receiver_id"
     t.boolean  "done",        default: false
+    t.text     "body"
   end
 
   add_index "supports", ["receiver_id"], name: "index_supports_on_receiver_id", using: :btree

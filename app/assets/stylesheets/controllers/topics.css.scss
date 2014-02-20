@@ -1,6 +1,13 @@
 // Place all the styles related to the topics controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.topics {
+  form.support {
+    textarea {
+      min-height: 150px;
+    }
+  }
+}
 ul.topic_list, ul.supporters  {
   list-style: none;
   margin-left: 0;

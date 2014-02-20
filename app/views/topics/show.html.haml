@@ -3,7 +3,5 @@
     %h1
       %i.glyphicon.glyphicon-fire
       Need help with #{topic.small_title}?
-    %ul.supporters
-      - random_supporters.each do |supporter|
-        = render 'supporter', supporter: supporter, topic: topic
+    = render 'supports/form', supporter: random_supporter, topic: topic
 

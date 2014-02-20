@@ -1,5 +1,0 @@
-%li.row
-  = simple_form_for :support, url: topic_supports_path(topic)  do |f|
-    = f.input :user_id, as: :hidden, input_html: { value: supporter.id }
-    = f.submit "Ask #{supporter} for help"
-

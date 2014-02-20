@@ -1,5 +1,5 @@
 class SupportMailer < ActionMailer::Base
-  default from: AppConfig.postmark.from
+  default from: AppConfig.from
 
   def help_me(support)
     @support = support

@@ -3,6 +3,9 @@
     text-align: center;
     margin-top: 20px;
     font-size: $small_font;
+    a.btn {
+      font-size: $small_font;
+    }
   }
 }
 ul.supports {

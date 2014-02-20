@@ -1,0 +1,9 @@
+.row
+  .col-md-4
+    #{supporter.gravatar(300)}
+  .col-md-8
+    = simple_form_for :support, url: topic_supports_path(topic)  do |f|
+      = f.input :body, as: :text, label: 'Describe what do you need help with'
+      = f.input :user_id, as: :hidden, input_html: { value: supporter.id }
+      = f.submit "Ask #{supporter} for help", class: 'btn btn-primary'
+      = link_to "Select another supporter", "", class: 'btn btn-danger'
