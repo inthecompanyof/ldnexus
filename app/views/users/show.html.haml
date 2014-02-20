@@ -1,0 +1,13 @@
+.row.user_header
+  .user_info.col-md-12
+    #{user.gravatar(300)}
+    %h1
+      #{user} helped others
+      .score
+        %span #{user.supports_count}
+        times
+%h3 Support history
+%ul.supports.row
+  - supports[0..0].each do |support|
+    %li.col-md-6= render support
+= render 'layouts/back_to_home'

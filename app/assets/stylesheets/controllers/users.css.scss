@@ -12,4 +12,19 @@
       @extend .text-primary;
     }
   }
+  .user_header {
+    margin-top: 15px;
+    .user_info {
+      img {
+        @extend .pull-left;
+        margin-right: 15px;
+      }
+    }
+    .score {
+      span {
+        @extend .text-success;
+        font-size: $big_font * 2.5;
+      }
+    }
+  }
 }

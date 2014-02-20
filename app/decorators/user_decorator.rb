@@ -12,16 +12,12 @@ class UserDecorator < Draper::Decorator
     object.helps_with?(topic.object) ? "you can help with that!" : "you are not helping yet."
   end
 
-  def gravatar
-    h.gravatar_image_tag object.email
+  def gravatar(size = 80)
+    h.gravatar_image_tag(object.email, size)
   end
 
   def info
     h.content_tag(:span, h.raw(gravatar + to_s))
-  end
-
-  def score
-    "helped #{supports_count} times"
   end
 
 end
