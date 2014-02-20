@@ -17,7 +17,7 @@ class UserDecorator < Draper::Decorator
   end
 
   def info
-    h.content_tag(:span, h.raw(gravatar + to_s))
+    h.content_tag :span, h.raw(h.link_to(gravatar + to_s, object))
   end
 
 end
