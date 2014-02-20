@@ -20,4 +20,8 @@ class UserDecorator < Draper::Decorator
     h.content_tag(:span, h.raw(gravatar + to_s))
   end
 
+  def score
+    "helped #{supports_count} times"
+  end
+
 end
