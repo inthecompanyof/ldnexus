@@ -6,8 +6,15 @@
       .score
         %span #{user.supports_count}
         times
-%h3 Support history
-%ul.supports.row
-  - supports.each do |support|
-    %li.col-md-6= render support
+.row
+  .col-md-6
+    %h3 Skills
+    %ul.skills
+      - skills.each do |skill|
+        %li= render skill
+  .col-md-6
+    %h3 Support history
+    %ul.supports
+      - supports.each do |support|
+        %li= render support
 = render 'layouts/back_to_home'
