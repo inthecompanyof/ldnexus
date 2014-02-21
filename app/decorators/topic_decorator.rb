@@ -9,4 +9,8 @@ class TopicDecorator < Draper::Decorator
   def small_title
     topic.to_s.downcase
   end
+
+  def supporters
+    h.raw topic.users.map{|user| h.link_to(user, user) }.join(", ")
+  end
 end
