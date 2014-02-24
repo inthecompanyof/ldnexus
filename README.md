@@ -1,141 +1,67 @@
-Help
-=========
+# Help me!
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+This application is a simple, easy to run support system for your team. It's ment to be used internally, to encourage your team members to help each other. 
 
-Diagnostics
--
+The flow is quite simple: 
+* we sign in users with google apps
+* every user selects the topics, he feels he can help with
+* user seeking for help picks the topic from the list and application will randomly assign somebody to help him (from the list of users that marked the topic as their skill)   
 
-This application was built with recipes that are known to work together.
+TL;DR: you select what you can help with or application selects somebody to help you
 
-This application was built with preferences that are NOT known to work
-together.
+## Deploying
+This is just a simple rails app, can be easly deployed to heroku under < 5 time mark :) 
+Once you have your heroku.com account set up, do this: 
 
-If the application doesn’t work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include these diagnostics:
+* Clone the application locally:   
+```git clone git://github.com/netguru/help.git help-app && cd help-app```
+* create an empty app on heroku, with postgres - replace 'crazysheeps' with your own app name:  
+```heroku apps:create crazysheeps --addons heroku-postgresql``` 
+* push the app to heroku, let them do their thing:    
+``` git push heroku``` 
+* load the database schema     
+```heroku run rake db:schema:load```
 
-We’d also like to know if you’ve found combinations of recipes or
-preferences that do work together.
+## Configuration 
 
-Recipes:
+Once it's deployed it needs few configuration variables to run properly. Here is the config file for reference: [https://github.com/netguru/help/blob/master/config/config.yml#L18](https://github.com/netguru/help/blob/master/config/config.yml#L18)
 
-* apps4
-* controllers
-* core
-* email
-* extras
-* frontend
-* gems
-* git
-* init
-* models
-* prelaunch
-* railsapps
-* readme
-* routes
-* saas
-* setup
-* testing
-* views
+* App domain - the domain the application is aviable under. Like so: 
+```heroku config:set APP_DOMAIN=crazysheeps.herokuapp.com```
 
-Preferences:
+* Google apps - we assume you use google ouath for authentication. Go to your [google console](https://cloud.google.com/console/project) to generate oauth client and secret for the project. In google console set your_help_app_domain.com/auth/google_oauth2/callback
 
-* git: true
-* apps4: rails-bootstrap
-* database: default
-* unit_test: false
-* integration: false
-* fixtures: false
-* frontend: bootstrap3
-* email: none
-* authentication: false
-* devise_modules: false
-* authorization: false
-* starter_app: false
-* form_builder: simple_form
-* quiet_assets: true
-* local_env_file: figaro
-* better_errors: true
-* dev_webserver: webrick
-* prod_webserver: same
-* templates: haml
-* continuous_testing: none
-* rvmrc: false
-* ban_spiders: true
+* You can use plain google account but we recommend using google apps, to scope login to emails from your organization. Set values like so: 
 
-Ruby on Rails
----
+```
+  heroku config:set GAPPS_ID=google_apps_client_id
+  heroku config:set GAPPS_SECRET=google_apps_client_secret
+  heroku config:set GAPPS_DOMAIN=google_apps_primary_domain
+```
 
-This application requires:
+* Postmark - if you want the application to send out email notifications on support request you can configure it to use postmark free account. Heroku makes it easy - read more here and follow the instructions: [https://addons.heroku.com/postmark#10k](https://addons.heroku.com/postmark#10k)
 
--   Ruby
--   Rails
+```
+  heroku addons:add postmark
+  heroku config:set POSTMARK_API_KEY=the_api_token_from_postmark_account
+```
 
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
+Once you do have your postmark account connected with heroku, you can configure a from address with them (or set it to postmark default). More here: [http://support.postmarkapp.com/customer/portal/articles/64741-how-can-i-send-on-behalf-of-my-users-](http://support.postmarkapp.com/customer/portal/articles/64741-how-can-i-send-on-behalf-of-my-users-)
 
-Database
----
+```heroku config:set POSTMARK_FROM=the_address_you_selected@example.com```    
 
-This application uses SQLite with ActiveRecord.
+* You can also set a cc address for all support emails to scope the conversations under google group, or add notifications with [Zappier](https://zapier.com/zapbook/email/) - we used this to display support activity on hipchat: [https://zapier.com/zapbook/email/hipchat/](https://zapier.com/zapbook/email/hipchat/)    
 
-Development
--
+```heroku config:set DEFAULT_CC=default_cc_address@example.com```    
 
--   Template Engine: Haml
--   Testing Framework: Test::Unit
--   Front-end Framework: Twitter Bootstrap 3.0 (Sass)
--   Form Builder: SimpleForm
--   Authentication: None
--   Authorization: None
--   Admin: None
+## Setting help subjects
 
+For now we did not yet develop any admin panel for the application. You will have to use heroku console to create your support categories. This is how we set them: 
+```
+> heroku run rails console 
 
-
-
-
-
- delivery is disabled in development.
-
-Getting Started
-
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Documentation and Support
-
-
-This is the only documentation.
-
-#### Issues
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Similar Projects
--
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Contributing
---
-
-If you make improvements to this application, please share with others.
-
--   Fork the project on GitHub.
--   Make your feature addition or bug fix.
--   Commit with Git.
--   Send the author a pull request.
-
-If you add functionality to this application, create an alternative
-implementation, or build an application that is similar, please contact
-me and I’ll add a note to the README so that others can find your work.
-
-Credits
---
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-License
---
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+irb(main):001:0> Topic.create(title: 'test category')
+=> #<Topic id: 3, title: "test category">
+irb(main):002:0> Topic.create(title: 'anoter help subject')
+=> #<Topic id: 4, title: "anoter help subject">
+```
