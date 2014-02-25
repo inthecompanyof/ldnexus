@@ -2,9 +2,14 @@ class SessionsController < ApplicationController
 
   skip_before_filter :login_required
 
+  expose(:failure_reason) { params[:message].presence || 'unknown' }
+
   def create
     login.commence!
     redirect_to root_path
+  end
+
+  def failure
   end
 
   private
@@ -20,6 +25,10 @@ class SessionsController < ApplicationController
 
   def login
     LogUserIn.new(session, user_params)
+  end
+
+  def failure_message
+    params[:message].presence || 'unknown'
   end
 
 end
