@@ -8,8 +8,7 @@ class RegisterUser
     self.data = user_hash
   end
 
-  def commence! # nakurwiam węgorza
-    Rails.logger.info "na na na na na na"
+  def commence! # http://www.youtube.com/watch?v=HWSPaO2SN8E
     self.user = build_new_user
     user.save!
   end
