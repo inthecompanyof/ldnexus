@@ -13,7 +13,7 @@ test:
     secret: <%= ENV['GAPPS_SECRET'] %>
     domain: <%= ENV['GAPPS_DOMAIN'] %>
   from: "test@example.com"
-
+  domain: localhost
 
 production:
   google_apps:
