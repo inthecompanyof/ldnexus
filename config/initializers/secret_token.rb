@@ -9,4 +9,8 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Help::Application.config.secret_key_base = '8d93a489d4d456ac1286d83635742fab62be32d2f798440034459f7b4bbb2b04e4a9f8fb744b7cfa6347ff199333803ebad67ef2723a7c2b39cdfffa339358c9'
+Help::Application.config.secret_key_base = if Rails.env.development? || Rails.env.test?
+                                             'x' * 30
+                                           else
+                                             AppConfig.secret_key_base
+                                           end
