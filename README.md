@@ -26,8 +26,8 @@ Once you have your heroku.com account set up, do this:
 
 Once it's deployed it needs few configuration variables to run properly. Here is the config file for reference: [https://github.com/netguru/help/blob/master/config/config.yml#L18](https://github.com/netguru/help/blob/master/config/config.yml#L18)
 
-* Secret token - used for encrypting cookies
-```heroku config:set SECRET_TOKEN=randomstringwithminimum30characters```
+* Secret key base - used for encrypting cookies
+```heroku config:set SECRET_KEY_BASE=randomstringwithminimum30characters```
 
 * App domain - the domain the application is aviable under. Like so: 
 ```heroku config:set APP_DOMAIN=crazysheeps.herokuapp.com```
