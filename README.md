@@ -1,5 +1,7 @@
 # Help me!
 
+[![Code Climate](https://codeclimate.com/github/netguru/help.png)](https://codeclimate.com/github/netguru/help)
+
 This application is a simple, easy to run support system for your team. It's ment to be used internally, to encourage your team members to help each other. 
 
 The flow is quite simple: 
