@@ -2,6 +2,7 @@ class SupportsController < ApplicationController
 
   expose_decorated(:topic){ Topic.find(params[:topic_id]) }
   expose_decorated(:support) { Support.find(params[:id]) }
+  expose_decorated(:comments){ support.comments }
 
   def create
     need_support = AskForSupport.new(current_user.object, topic, params[:support])

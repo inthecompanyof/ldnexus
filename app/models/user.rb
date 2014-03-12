@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :topics, through: :skills
   has_many :supports
   has_many :received_supports, as: :receiver
+  has_many :comments
 
   def name
     "#{first_name} #{last_name}"
