@@ -1,7 +1,7 @@
 class CommentDecorator < Draper::Decorator
 
   decorates :comment
-  delegate :id, :body
+  delegate :id, :body, :to_key
 
   def user_info
     user.info
