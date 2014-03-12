@@ -15,6 +15,17 @@
     %blockquote
       %p #{support.body}
 
+- if comments.any?
+  .row.comments
+    .panel.panel-default
+      .panel-heading
+        %span.glyphicon.glyphicon-comment
+        %h3.panel-title Comments
+      .panel-body.list-group
+        = render comments
+
+    = render 'comments/form'
+
 
 
 
