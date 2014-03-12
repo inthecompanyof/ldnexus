@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-  expose_decorated(:support){ Support.find(params[:support_id]) }
+  expose_decorated(:support)
 
   def create
     comment = CommentOnSupport.new(current_user.object, support, params[:comment])
