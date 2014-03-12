@@ -26,8 +26,8 @@ class CommentOnSupport
   private
 
   def subscribers
-    arr = support.comments.map(&:user).uniq - [user]
-    arr << support.receiver
+    ids = support.comments.pluck(:user_id).uniq - [user.id] + [support.receiver_id]
+    User.where id: ids
   end
   
 end
