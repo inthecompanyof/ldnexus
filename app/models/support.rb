@@ -1,6 +1,6 @@
 class Support < ActiveRecord::Base
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
   belongs_to :receiver, class_name: 'User'
   belongs_to :user
   belongs_to :topic, counter_cache: true
