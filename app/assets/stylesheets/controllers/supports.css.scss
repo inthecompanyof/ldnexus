@@ -7,6 +7,23 @@
       font-size: $small_font;
     }
   }
+
+  .comments {
+    padding: 0px 20px;
+    .panel-title {
+      display: inline;
+    }
+    .panel-body {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    .list-group-item:hover {
+      background-color: #EEE;
+    }
+    .new_comment_form {
+      padding: 25px;
+    }
+  }
 }
 ul.supports {
   list-style: none;
