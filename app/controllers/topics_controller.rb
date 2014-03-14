@@ -8,4 +8,8 @@ class TopicsController < ApplicationController
 
   def index
   end
+
+  def show
+    @body = params[:body]
+  end
 end
