@@ -26,6 +26,15 @@ Once you have your heroku.com account set up, do this:
 
 ## Configuration
 
+### Setup database
+
+create user and a role, then copy sample `database.yml` file.
+
+```shell
+createuser --superuser --createrole help
+cp config/database.yml.sample config/database.yml
+```
+
 Once it's deployed it needs few configuration variables to run properly. Here is the config file for reference: [https://github.com/netguru/help/blob/master/config/config.yml#L18](https://github.com/netguru/help/blob/master/config/config.yml#L18)
 
 * Secret key base - used for encrypting cookies
