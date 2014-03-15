@@ -10,6 +10,12 @@ class SupportsController < ApplicationController
     redirect_to topics_path, notice: "We asked #{need_support.supporter} to help you."
   end
 
+  def skip
+    support.select_other_supporter!
+    redirect_to support_path(support), flash: { notice: 'As you wish, you lazy person!' }
+  rescue OnlyHopeError => e
+    redirect_to support_path(support), flash: { error: e.message }
+  end
 
   def finish
     support_finish = FinishSupport.new(current_user.object, support)
