@@ -30,6 +30,15 @@ class SupportDecorator < Draper::Decorator
     end
   end
 
+  def skip_button
+    return if done? || support.user != h.current_user
+
+    icon = h.content_tag :i, '', class: 'glyphicon glyphicon-forward'
+    h.link_to h.raw("#{icon} skip this one"), h.skip_support_path(object),
+              method: :post, class: 'btn btn-warning',
+              confirm: "Do you really don't have time for this one?"
+  end
+
   def user
     UserDecorator.decorate(object.user)
   end
