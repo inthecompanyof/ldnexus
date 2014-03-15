@@ -23,7 +23,7 @@ class AskForSupport
   end
 
   def new_support
-    @new_supprot ||= Support.new
+    @new_support ||= Support.new
   end
 
   def supporter
