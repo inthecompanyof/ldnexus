@@ -7,7 +7,7 @@ describe SupportsController do
 
     before do
       expect(controller).to receive(:current_user).and_return(double(:user))
-      expect(Support).to receive(:find).with(support.id.to_s).and_return(support)
+      expect(controller).to receive(:support).and_return(support).at_least(:once)
     end
 
     it 'executes SkipSupport service' do
