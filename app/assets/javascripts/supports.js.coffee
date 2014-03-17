@@ -3,9 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  $('[js-btn=another-supporter]').click (e) ->
-    e.preventDefault()
-    support_body = $('#support_body').val()
-    topic_id = $(e.target).data 'topicid'
-    topic_path = Routes.topic_path topic_id
-    window.location = if !!support_body then "#{topic_path}?body=#{support_body}" else topic_path
+  $support_body = $('#support_body')
+  setSupportBodyParam = ->
+    $('[js-btn=another-supporter]').attr 'href', "?support[body]=#{$support_body.val()}"
+
+  setSupportBodyParam()
+  $support_body.on 'change', setSupportBodyParam

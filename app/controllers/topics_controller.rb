@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
 
+  expose(:support){ Support.new support_params }
   expose_decorated(:topics){ Topic.all }
   expose_decorated(:topic){ Topic.find(params[:id]) }
   expose_decorated(:random_supporter, decorator: UserDecorator){
@@ -9,7 +10,9 @@ class TopicsController < ApplicationController
   def index
   end
 
-  def show
-    @body = params[:body]
-  end
+  private
+
+    def support_params
+      params.require(:support).permit :body if params[:support]
+    end
 end
