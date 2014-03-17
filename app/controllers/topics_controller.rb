@@ -12,7 +12,7 @@ class TopicsController < ApplicationController
 
   private
 
-    def support_params
-      params.require(:support).permit :body if params[:support]
-    end
+  def support_params
+    params.require(:support).permit :body if params[:support]
+  end
 end
