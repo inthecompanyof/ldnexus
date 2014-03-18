@@ -8,7 +8,7 @@ describe SkipSupport do
   subject { described_class.new support }
 
   describe '#skip!' do
-    context 'with availivable candidates' do
+    context 'with available candidates' do
       before { allow(subject).to receive(:candidates).and_return(candidates) }
 
       it 'assigns and save new user to support' do
