@@ -1,17 +1,25 @@
 class SkipSupport < Struct.new(:support)
+  require 'active_support/core_ext/string'
+
+  attr_accessor :candidate
+  attr_writer :candidates
 
   def skip!
-    candidate = next_candidate
-    if candidate.nil?
-      fail OnlyHopeError, 'Sorry, but no one else is able to help. It all depends on you.'
-    else
+    self.candidate = next_candidate
+    if can_skip?
       support.user = candidate
       support.save!
     end
+    self
   end
 
+  def success?
+    candidate.present?
+  end
+  alias_method :can_skip?, :success?
+
   def candidates
-    support.topic.users.without support.user
+    @candidates ||= support.topic.users.without support.user
   end
 
   private
@@ -21,4 +29,3 @@ class SkipSupport < Struct.new(:support)
   end
 end
 
-class OnlyHopeError < StandardError; end

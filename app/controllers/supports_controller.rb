@@ -11,10 +11,15 @@ class SupportsController < ApplicationController
   end
 
   def skip
-    SkipSupport.new(support).skip!
-    redirect_to support_path(support), flash: { notice: 'As you wish, you lazy person!' }
-  rescue OnlyHopeError => e
-    redirect_to support_path(support), flash: { error: e.message }
+    skip_service = SkipSupport.new support
+    skip_service.skip!
+    if skip_service.success?
+      redirect_to support_path(support), flash: { notice: 'As you wish, you lazy person!' }
+    else
+      redirect_to support_path(support), flash: {
+        error: 'Sorry, but no one else is able to help. It all depends on you.'
+      }
+    end
   end
 
   def finish
