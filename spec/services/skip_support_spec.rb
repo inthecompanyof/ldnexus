@@ -12,7 +12,7 @@ describe SkipSupport do
       before { allow(subject).to receive(:candidates).and_return(candidates) }
 
       it 'assigns and save new user to support' do
-        expect(support).to receive :user=
+        expect(support).to receive(:user=).with any_of(candidates)
         expect(support).to receive :save!
         skip!
       end
@@ -21,10 +21,11 @@ describe SkipSupport do
 
   describe '#success?' do
     it 'is true when there are some candidates available' do
-      allow(support).to receive :user=
-      allow(support).to receive :save!
+      candidate = double(:candidate)
+      subject.candidates = [candidate]
 
-      subject.candidates = [double(:candidate)]
+      allow(support).to receive(:user=).with(candidate)
+      allow(support).to receive :save!
 
       skip!
 
@@ -36,6 +37,12 @@ describe SkipSupport do
       skip!
 
       expect(subject.success?).to be false
+    end
+  end
+
+  def any_of(allowed_values)
+    satisfy do |arg|
+      expect(allowed_values).to include arg
     end
   end
 end
