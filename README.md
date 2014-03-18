@@ -74,10 +74,10 @@ Set values like so:
   heroku config:set POSTMARK_API_KEY=the_api_token_from_postmark_account
   ```
 
-Once you do have your postmark account connected with heroku, you can configure a from address with them (or set it to postmark default).
-More here: [http://support.postmarkapp.com/customer/portal/articles/64741-how-can-i-send-on-behalf-of-my-users-](http://support.postmarkapp.com/customer/portal/articles/64741-how-can-i-send-on-behalf-of-my-users-)
+  Once you do have your postmark account connected with heroku, you can configure a from address with them (or set it to postmark default).
+  More here: [http://support.postmarkapp.com/customer/portal/articles/64741-how-can-i-send-on-behalf-of-my-users-](http://support.postmarkapp.com/customer/portal/articles/64741-how-can-i-send-on-behalf-of-my-users-)
 
-`heroku config:set POSTMARK_FROM=the_address_you_selected@example.com`
+  `heroku config:set POSTMARK_FROM=the_address_you_selected@example.com`
 
 * You can also set a cc address for all support emails to scope the conversations under google group, or add notifications with [Zappier](https://zapier.com/zapbook/email/) - we used this to display support activity on hipchat: [https://zapier.com/zapbook/email/hipchat/](https://zapier.com/zapbook/email/hipchat/)
 
