@@ -4,8 +4,12 @@
 
 $ ->
   $support_body = $('#support_body')
+
   setSupportBodyParam = ->
-    $('[js-btn=another-supporter]').attr 'href', "?support[body]=#{$support_body.val()}"
+    query = $.param
+      support:
+        body: $support_body.val()
+    $('[data-another-supporter]').attr 'href', "?#{query}"
 
   setSupportBodyParam()
   $support_body.on 'change', setSupportBodyParam
