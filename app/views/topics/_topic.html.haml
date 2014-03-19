@@ -1,7 +1,3 @@
 %li.row
-  - if topic.users_count > 0
-    = link_to topic, class: 'btn btn-primary' do
-      #{topic} - #{topic.users_count} people can help
-  - else
-    = link_to "#", class: 'btn btn-primary' do
-      #{topic} - Sorry, no one is available to help yet
+  = link_to topic.show_link, class: 'btn btn-primary' do
+    #{topic.show_link_text}
