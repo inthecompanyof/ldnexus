@@ -9,7 +9,7 @@ describe FinishSupport do
 
     let(:another_user) { User.new }
 
-    before { support.stub(:save!) }
+    before { allow(support).to receive(:save!) }
 
     it "reassigns user support" do
       support.user = another_user
