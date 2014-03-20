@@ -10,6 +10,11 @@ class SupportsController < ApplicationController
     redirect_to topics_path, notice: "We asked #{need_support.supporter} to help you."
   end
 
+  def ack
+    support.ack!
+
+    redirect_to root_path, notice: 'Support acknowledged! now get this thing done!'
+  end
 
   def finish
     support_finish = FinishSupport.new(current_user.object, support)
