@@ -25,7 +25,6 @@ module MarkdownHelper
   end
 
   def renderer
-    Redcarpet::Render::HTML.new no_styles: true, hard_wrap: true
     PygmentsRenderHTML.new hard_wrap: true, filter_html: true, safe_links_only: true
   end
 end
