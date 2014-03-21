@@ -13,7 +13,8 @@
   .col-md-12
     %h3 The request was:
     %blockquote
-      %p #{support.body}
+      = preserve do
+        = markdown support.body
 
 .row.comments
   = render 'comments/comments'
