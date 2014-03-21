@@ -2,11 +2,14 @@ require 'spec_helper'
 
 describe AskForSupport do
 
-  subject {  described_class.new(User.new, Topic.new, {}) }
-  let(:user){ User.new }
+  subject { described_class.new(User.new, Topic.new, {}) }
+  let(:user) { User.new }
 
   describe '#commence!' do
-    before { subject.stub(supporter: user, deliver_email: true) }
+    before do
+      allow(subject).to receive(:supporter).and_return(user)
+      allow(subject).to receive(:deliver_email).and_return(true)
+    end
 
     it "should save new_support" do
       expect(subject.new_support).to receive(:save!)
@@ -18,7 +21,5 @@ describe AskForSupport do
       expect(subject).to receive(:deliver_email)
       subject.commence!
     end
-
   end
-
 end
