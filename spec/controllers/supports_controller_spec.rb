@@ -3,7 +3,7 @@ require 'spec_helper'
 describe SupportsController do
   context '#skip' do
     let(:support) { double(:support, id: 4) }
-    let(:skip_service) { double(:skip_service, skip!: true) }
+    let(:skip_service) { double(:skip_service).as_null_object }
 
     before do
       expect(controller).to receive(:current_user).and_return(double(:user))
@@ -12,7 +12,6 @@ describe SupportsController do
     end
 
     it 'executes SkipSupport service' do
-      allow(skip_service).to receive(:success?)
       expect(skip_service).to receive(:commence!)
 
       post :skip, id: support.id
