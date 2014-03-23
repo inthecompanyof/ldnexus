@@ -1,0 +1,58 @@
+.comment-panel {
+  @extend .panel;
+  @extend .panel-default;
+
+  .arrow {
+    position: absolute;
+    top: 11px;
+    left: -2px;
+    width: 0;
+    border-color: transparent;
+    border-right-color: whitesmoke;
+    border-width: 9px;
+    border-style: solid solid outset;
+  }
+
+  .comment-heading {
+    @extend .panel-heading;
+
+    ul {
+      @extend .nav;
+      @extend .nav-tabs;
+      border-bottom: none;
+      margin-bottom: -10px;
+      text-decoration: none;
+
+      li a {
+        line-height: 15px;
+        margin-top: -4px;
+        color: #666;
+        &:hover {
+          background: none;
+          border-color: transparent;
+        }
+      }
+    }
+  }
+
+  .comment-body {
+    @extend .panel-body;
+    @extend .tab-content;
+    padding: 0px;
+    $pdg: 10px;
+
+    .tab-pane {
+      padding: $pdg;
+    }
+
+    [type=submit] {
+      margin: -$pdg $pdg $pdg 0;
+    }
+
+    textarea {
+      height: 100px;
+      max-height: 600px;
+      resize: vertical;
+    }
+  }
+}

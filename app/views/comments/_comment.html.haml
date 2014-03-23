@@ -2,6 +2,4 @@
   .col-md-2
     .pull-left= comment.user_info
     .pull-left.date= comment.created_at
-  .col-md-10.comment-body
-    = preserve do
-      = markdown comment.body
+  .col-md-10.comment-body.markdown-body= preserve comment.body

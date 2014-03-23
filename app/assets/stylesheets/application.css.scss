@@ -15,7 +15,8 @@ $big_font: 56px;
 $small_font: $big_font / 2;
 
 @import "framework_and_overrides";
-@import "markdown";
+@import "markdown_github";
+@import "modules/comment_panel";
 @import "controllers/skills";
 @import "controllers/home";
 @import "controllers/topics";
