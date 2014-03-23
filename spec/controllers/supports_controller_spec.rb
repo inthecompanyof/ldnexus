@@ -12,8 +12,8 @@ describe SupportsController do
     end
 
     it 'executes SkipSupport service' do
-      expect(skip_service).to receive(:skip!)
       allow(skip_service).to receive(:success?)
+      expect(skip_service).to receive(:commence!)
 
       post :skip, id: support.id
     end

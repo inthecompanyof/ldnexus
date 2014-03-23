@@ -12,7 +12,7 @@ class SupportsController < ApplicationController
 
   def skip
     skip_service = SkipSupport.new support
-    skip_service.skip!
+    skip_service.commence!
     if skip_service.success?
       redirect_to support_path(support), flash: { notice: 'As you wish, you lazy person!' }
     else

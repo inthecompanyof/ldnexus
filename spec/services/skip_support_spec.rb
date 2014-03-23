@@ -3,7 +3,7 @@ require_relative '../../app/services/skip_support'
 describe SkipSupport do
   let(:candidates) { 2.times.map { double(:user, present?: true) } }
   let(:support) { double(:support) }
-  let(:skip!) { subject.skip! }
+  let(:skip!) { subject.commence! }
 
   subject { described_class.new support }
 

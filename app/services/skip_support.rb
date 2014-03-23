@@ -4,7 +4,7 @@ class SkipSupport < Struct.new(:support)
   attr_accessor :candidate
   attr_writer :candidates
 
-  def skip!
+  def commence!
     self.candidate = next_candidate
     if can_skip?
       support.user = candidate
