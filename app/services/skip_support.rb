@@ -20,7 +20,10 @@ class SkipSupport < Struct.new(:support)
   end
 
   def candidates
-    @candidates ||= support.topic.users.without support.user
+    @candidates ||= begin
+                      users = FindTopicUsers.new support.topic
+                      users.all_except support.user
+                    end
   end
 
   private
@@ -31,6 +34,16 @@ class SkipSupport < Struct.new(:support)
 
   def next_candidate
     candidates.sample
+  end
+end
+
+class FindTopicUsers < Struct.new(:topic)
+  def all
+    topic.users
+  end
+
+  def all_except(user)
+    topic.users.without user
   end
 end
 
