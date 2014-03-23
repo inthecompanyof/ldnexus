@@ -20,8 +20,6 @@ gem 'draper'
 gem 'decent_exposure'
 gem 'decent_decoration'
 gem 'rollbar'
-gem 'redcarpet'
-gem 'pygments.rb'
 
 group :development do
   gem 'letter_opener'

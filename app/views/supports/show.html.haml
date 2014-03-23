@@ -12,9 +12,7 @@
 .row.support_body
   .col-md-12
     %h3 The request was:
-    %blockquote
-      = preserve do
-        = markdown support.body
+    %blockquote= preserve support.body
 
 .row.comments
   = render 'comments/comments'
