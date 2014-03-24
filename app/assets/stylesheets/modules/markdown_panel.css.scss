@@ -1,4 +1,4 @@
-.comment-panel {
+.markdown-panel {
   @extend .panel;
   @extend .panel-default;
 
@@ -13,7 +13,7 @@
     border-style: solid solid outset;
   }
 
-  .comment-heading {
+  .markdown-heading {
     @extend .panel-heading;
 
     ul {
@@ -35,7 +35,7 @@
     }
   }
 
-  .comment-body {
+  .markdown-content {
     @extend .panel-body;
     @extend .tab-content;
     padding: 0px;

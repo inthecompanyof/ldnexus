@@ -3,14 +3,14 @@
     .pull-left #{current_user.info}
   .col-md-8
     = simple_form_for :comment, url: support_comments_path(support), html: { id: 'new_comment_form' } do |f|
-      .comment-panel
+      .markdown-panel
         .arrow
-        .comment-heading
+        .markdown-heading
           %ul
             %li.active= link_to 'Write', '#write-content', data: { toggle: 'tab' }, id: 'write-tab'
             %li= link_to 'Preview', '#preview-content', data: { toggle: 'tab' }, id: 'preview-tab'
 
-        .comment-body
+        .markdown-content
           #write-content.tab-pane.active
             = f.input :body, as: :text, label: false, input_html: { required: true }, placeholder: 'Leave a comment'
           #preview-content.tab-pane

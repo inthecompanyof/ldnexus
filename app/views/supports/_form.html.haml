@@ -4,14 +4,14 @@
   .col-md-8
     = simple_form_for support, url: topic_supports_path(topic), html: { class: 'support' } do |f|
       = f.input :user_id, as: :hidden, input_html: { value: supporter.id }
-      .comment-panel
+      .markdown-panel
         .arrow
-        .comment-heading
+        .markdown-heading
           %ul
             %li.active= link_to 'Write', '#write-content', data: { toggle: 'tab' }, id: 'write-tab'
             %li= link_to 'Preview', '#preview-content', data: { toggle: 'tab' }, id: 'preview-tab'
 
-        .comment-body
+        .markdown-content
           #write-content.tab-pane.active
             = f.input :body, as: :text, label: false, input_html: { required: true }, placeholder: 'Describe what do you need help with'
           #preview-content.tab-pane
