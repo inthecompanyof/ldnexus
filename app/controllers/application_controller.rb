@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  decent_configuration do
+    strategy DecentExposure::StrongParametersStrategy
+  end
+
   def login_required
     redirect_to login_path unless logged_in?
   end
