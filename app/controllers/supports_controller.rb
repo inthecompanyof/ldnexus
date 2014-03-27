@@ -11,7 +11,8 @@ class SupportsController < ApplicationController
   end
 
   def ack
-    support.ack!
+    acknowledge_support = AcknowledgeSupport.new current_user.object, support
+    acknowledge_support.commence!
 
     redirect_to root_path, notice: 'Support acknowledged! now get this thing done!'
   end
