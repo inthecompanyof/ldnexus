@@ -1,7 +1,7 @@
 class SupportDecorator < Draper::Decorator
 
   decorates :support
-  delegate :done?, :body
+  delegate :done?, :body, :discussed?
 
   def title
     h.raw "#{receiver_info} asked #{user_info} for help with #{object.topic}"
@@ -26,11 +26,10 @@ class SupportDecorator < Draper::Decorator
   def action_button
     return if done? || support.receiver == h.current_user
 
-    case support.state
-    when 'pending'
-      ack_button
-    else
+    if discussed?
       finish_button
+    else
+      ack_button
     end
   end
 
