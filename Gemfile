@@ -20,7 +20,6 @@ gem 'draper'
 gem 'decent_exposure'
 gem 'decent_decoration'
 gem 'rollbar'
-gem 'state_machine'
 
 group :development do
   gem 'letter_opener'
