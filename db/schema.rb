@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 20140312032352) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "receiver_id"
-    t.text     "body"
     t.boolean  "done",        default: false
+    t.text     "body"
   end
 
   add_index "supports", ["receiver_id"], name: "index_supports_on_receiver_id", using: :btree
