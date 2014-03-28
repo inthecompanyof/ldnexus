@@ -10,8 +10,6 @@ class Support < ActiveRecord::Base
   default_scope -> { order(created_at: :desc) }
 
   def discussed?
-    comments.where(
-      Comment.arel_table[:user_id].not_eq(receiver_id)
-    ).exists?
+    comments_count > 0
   end
 end
