@@ -20,7 +20,8 @@ class FinishSupport
   end
 
   def finish_support
-    support.finish!
+    support.done = true
+    support.save!
   end
 
   def update_counter
