@@ -1,7 +1,7 @@
 class SupportsController < ApplicationController
 
-  expose_decorated(:topic)
-  expose_decorated(:support, attributes: :support_params)
+  expose_decorated(:topic) { Topic.find(params[:topic_id]) }
+  expose_decorated(:support) { Support.find(params[:id]) }
   expose_decorated(:comments) { support.comments.includes(:user) }
 
   def create
@@ -9,7 +9,6 @@ class SupportsController < ApplicationController
     need_support.commence!
     redirect_to topics_path, notice: "We asked #{need_support.supporter} to help you."
   end
-
 
   def finish
     support_finish = FinishSupport.new(current_user.object, support)

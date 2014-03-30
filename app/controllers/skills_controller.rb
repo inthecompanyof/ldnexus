@@ -1,8 +1,9 @@
 class SkillsController < ApplicationController
 
-  expose_decorated(:topics)
-  expose_decorated(:topic)
+  expose_decorated(:topics) { Topic.all }
   expose_decorated(:skills) { current_user.skills }
+  expose_decorated(:topic) { Topic.find(params[:topic_id]) }
+
 
   def index
   end
