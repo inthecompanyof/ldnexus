@@ -12,3 +12,4 @@
           %li= link_to 'Ranking', users_path
         %ul.nav.navbar-nav.navbar-right
           %li= link_to 'How can I help?', skills_path
+          %li.navbar-avatar= current_user.gravatar(36)

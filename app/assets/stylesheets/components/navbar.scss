@@ -18,4 +18,8 @@
     background: image-url('logo/help_24px.png') no-repeat center center;
     display: inline-block;
   }
+  &-avatar {
+    @include circle(36px);
+    margin-top: 6px;
+  }
 }
