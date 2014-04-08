@@ -1,4 +1,9 @@
 .navbar {
   @extend %border-bottom;
   background: $white;
+  &-nav {
+    a {
+      @extend .bold
+    }
+  }
 }
