@@ -11,4 +11,11 @@
       }
     }
   }
+  &-brand {
+    @include square(24px);
+    margin-top: 10px;
+    text-indent: -2000px;
+    background: image-url('logo/help_24px.png') no-repeat center center;
+    display: inline-block;
+  }
 }
