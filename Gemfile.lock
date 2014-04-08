@@ -35,6 +35,9 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.1.0.2)
       sass (~> 3.2)
+    bourbon (3.1.8)
+      sass (>= 3.2.0)
+      thor
     builder (3.1.4)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -211,6 +214,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass (>= 3.0.0.0)
+  bourbon
   coffee-rails (~> 4.0.0)
   decent_decoration
   decent_exposure
