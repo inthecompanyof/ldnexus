@@ -1,0 +1,15 @@
+$sides: bottom left right top;
+
+@each $first_side in $sides {
+  %border-#{$first_side} {
+    border-#{$first_side}: 1px solid $border-color;
+  }
+  @each $second_side in $sides {
+    @if $first_side != $second_side {
+      %border-#{$first_side}-#{$second_side} {
+        border-#{$first_side}: 1px solid $border-color;
+        border-#{$second_side}: 1px solid $border-color;
+      }
+    }
+  }
+}
