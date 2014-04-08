@@ -1,9 +1,14 @@
 .navbar {
   @extend %border-bottom;
   background: $white;
-  &-nav {
-    a {
-      @extend .bold
+  .nav {
+    > li > a {
+      @extend .bold;
+      color: $base_color;
+      background: none;
+      &:hover {
+        color: $active_color;
+      }
     }
   }
 }
