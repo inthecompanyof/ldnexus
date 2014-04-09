@@ -1,0 +1,11 @@
+*, *:before, *:after {
+  -webkit-font-smoothing: antialiased;
+}
+
+.bold, strong {
+  @include font-family($base_font_family, 700);
+}
+
+a, a:hover {
+  color: $active_color;
+}

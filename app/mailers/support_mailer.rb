@@ -1,10 +1,10 @@
 class SupportMailer < ActionMailer::Base
-  default from: AppConfig.from, cc: AppConfig.cc
+  default from: AppConfig.from
 
   def help_me(support)
     @support = support
     subject = "#{support.receiver} asked #{support.user} for help with #{support.topic} - #{support_url(support)}"
-    mail subject: subject, to: support.user.email, reply_to: support.receiver.email
+    mail subject: subject, to: support.user.email, reply_to: support.receiver.email, cc: AppConfig.cc
   end
 
   def new_comment(support, comment, user)

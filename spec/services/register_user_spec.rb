@@ -11,7 +11,7 @@ describe RegisterUser do
   end
 
   it "saves the new user" do
-    subject.stub(build_new_user: new_user)
+    expect(subject).to receive(:build_new_user).and_return(new_user)
     expect(new_user).to receive(:save!)
     subject.commence!
   end
