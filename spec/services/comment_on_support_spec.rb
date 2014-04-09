@@ -4,7 +4,7 @@ describe CommentOnSupport do
   subject { described_class.new(User.new, Support.new, {}) }
 
   describe "#commence!" do
-    before { subject.stub(deliver_email: true) }
+    before { allow(subject).to receive(:deliver_email) }
 
     it "saves new comment" do
       expect(subject.new_comment).to receive(:save!)
