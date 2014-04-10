@@ -10,6 +10,18 @@ class SupportsController < ApplicationController
     redirect_to topics_path, notice: "We asked #{need_support.supporter} to help you."
   end
 
+  def skip
+    skip_service = SkipSupport.new support
+    skip_service.commence!
+    if skip_service.success?
+      redirect_to support_path(support), flash: { notice: 'As you wish, you lazy person!' }
+    else
+      redirect_to support_path(support), flash: {
+        error: 'Sorry, but no one else is able to help. It all depends on you.'
+      }
+    end
+  end
+
   def ack
     acknowledge_support = AcknowledgeSupport.new current_user.object, support
     acknowledge_support.commence!

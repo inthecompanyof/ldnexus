@@ -18,3 +18,4 @@ class Support < ActiveRecord::Base
     comments.count
   end
 end
+

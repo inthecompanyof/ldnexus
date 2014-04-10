@@ -10,6 +10,7 @@ Help::Application.routes.draw do
     resources :comments, only: :create
     member do
       post :finish
+      post :skip
       post :ack
     end
   end
