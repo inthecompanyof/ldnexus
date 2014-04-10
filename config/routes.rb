@@ -11,6 +11,7 @@ Help::Application.routes.draw do
     member do
       post :finish
       post :skip
+      post :ack
     end
   end
 

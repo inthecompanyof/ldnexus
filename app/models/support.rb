@@ -8,5 +8,14 @@ class Support < ActiveRecord::Base
   scope :done, -> { where(done: true) }
   scope :not_done, -> { where(done: false) }
   default_scope -> { order(created_at: :desc) }
+
+  def discussed?
+    comments_count > 0
+  end
+
+  def comments_count
+    # TODO: replace with counter cache
+    comments.count
+  end
 end
 
