@@ -57,6 +57,9 @@ GEM
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       request_store (~> 1.0.3)
+    email_spec (1.5.0)
+      launchy (~> 2.1)
+      mail (~> 2.2)
     erubis (2.7.0)
     execjs (2.0.2)
     faraday (0.9.0)
@@ -219,6 +222,7 @@ DEPENDENCIES
   decent_decoration
   decent_exposure
   draper
+  email_spec
   figaro
   haml-rails
   high_voltage
