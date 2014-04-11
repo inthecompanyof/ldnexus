@@ -13,7 +13,7 @@ describe SupportMailer do
       expect(subject).to have_body_text /#{comment.body}/
     end
 
-    it "is delivered to user" do
+    it 'is delivered to user' do
       expect(subject).to deliver_to mail_receiver.email
     end
 
