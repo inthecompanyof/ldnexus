@@ -1,6 +1,7 @@
--# Rails flash messages styled for Bootstrap 3.0
-- flash.each do |name, msg|
-  - if msg.is_a?(String)
-    %div{:class => "alert alert-#{name == :notice ? "success" : "danger"}"}
-      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
-      = content_tag :div, msg, :id => "flash_#{name}"
+.container
+  .row
+    - flash_alerts.each do |alert|
+      .col-md-12
+        .alert{ class: alert.css_class }
+          %button.close{ aria: { hidden: 'true' }, data: { dismiss: 'alert' }, type: 'button' } &times;
+          %div{ id: alert.id }= alert.msg
