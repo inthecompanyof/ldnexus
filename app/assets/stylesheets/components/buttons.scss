@@ -20,6 +20,8 @@
   @include button-color($white, $active_color);
   @include button-size(10px, 15px, 13px, 4px, 16px);
   border: 1px solid transparent;
+  white-space: nowrap;
+  display: inline-block;
 
   &--lg {
     @include button-size(20px, 30px, 19px, 6px, 22px);
