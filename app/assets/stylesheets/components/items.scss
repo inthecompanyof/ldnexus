@@ -14,9 +14,10 @@
 .item {
   @include item-color($active_color, $white, $border_color);
   @extend .bold;
-  font-size: 18px;
+  margin-bottom: 27px;
   padding: 23px 20px;
   width: 100%;
+  font-size: 18px;
   border-radius: 4px;
   display: block;
   &__label {
