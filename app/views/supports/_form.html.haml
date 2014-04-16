@@ -1,6 +1,6 @@
 .row
   .col-md-2.hidden-xs
-    #{supporter.gravatar(100)}
+    #{current_user.gravatar(100)}
   .col-md-10
     = simple_form_for support, url: topic_supports_path(topic), html: { class: 'support' } do |f|
       = f.input :user_id, as: :hidden, input_html: { value: supporter.id }
