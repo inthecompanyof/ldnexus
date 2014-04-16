@@ -12,7 +12,8 @@
 
         .markdown-content
           #write-content.tab-pane.active
-            = f.input :body, as: :text, label: false, input_html: { required: true }, placeholder: 'Leave a comment'
+            = f.input :body, as: :text, label: false, input_html: { required: true },
+              placeholder: 'Leave a comment'
           #preview-content.tab-pane
       .action-panel
         = f.submit 'Comment', class: 'btn btn-success pull-right'

@@ -13,9 +13,10 @@
 
       .markdown-content
         #write-content.tab-pane.active
-          = f.input :body, as: :text, label: false, input_html: { required: true }, placeholder: 'Describe what do you need help with'
+          = f.input :body, as: :text, label: false, input_html: { required: true },
+            placeholder: 'Describe what do you need help with'
         #preview-content.tab-pane
 
     .action-panel
       = link_to 'Select another supporter', '#', class: '', data: { another_supporter: true }
-      = f.submit "Ask for help", class: 'btn btn-primary'
+      = f.submit 'Ask for help', class: 'btn btn-primary'

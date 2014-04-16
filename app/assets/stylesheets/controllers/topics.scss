@@ -46,6 +46,7 @@ ul.supporters {
 .supporters-list {
   margin-top: 5px;
 }
+
 .supporter_name {
   text-transform: capitalize;
 }
@@ -78,7 +79,6 @@ ul.supporters {
   top: 0px;
   left: 15px;
 }
-
 
 @media (min-width: $screen-md-min) {
   .support-form { padding-left: 100px; }
