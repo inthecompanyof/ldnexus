@@ -1,21 +1,21 @@
 .row
-  .col-md-2.pic-holder.hidden-xs.hidden-sm
+  .pic-holder.hidden-xs.hidden-sm
     = current_user.gravatar(60)
-  .col-md-10
-    = simple_form_for support, url: topic_supports_path(topic), html: { class: 'support' } do |f|
-      = f.input :user_id, as: :hidden, input_html: { value: supporter.id }
-      .markdown-panel
-        .arrow
-        .markdown-heading
-          %ul
-            %li.active= link_to '', '#write-content', data: { toggle: 'tab' }, id: 'write-tab', class: 'action-icon'
-            %li= link_to '', '#preview-content', data: { toggle: 'tab' }, id: 'preview-tab', class: 'action-icon'
 
-        .markdown-content
-          #write-content.tab-pane.active
-            = f.input :body, as: :text, label: false, input_html: { required: true }, placeholder: 'Describe what do you need help with'
-          #preview-content.tab-pane
+  = simple_form_for support, url: topic_supports_path(topic), html: { class: 'col-md-12 support-form' } do |f|
+    = f.input :user_id, as: :hidden, input_html: { value: supporter.id }
+    .markdown-panel
+      .arrow.hidden-xs.hidden-sm
+      .markdown-heading
+        %ul
+          %li.active= link_to '', '#write-content', data: { toggle: 'tab' }, id: 'write-tab', class: 'action-icon'
+          %li= link_to '', '#preview-content', data: { toggle: 'tab' }, id: 'preview-tab', class: 'action-icon'
 
-      .action-panel
-        = link_to 'Select another supporter', '#', class: '', data: { another_supporter: true }
-        = f.submit "Ask for help", class: 'btn btn-primary'
+      .markdown-content
+        #write-content.tab-pane.active
+          = f.input :body, as: :text, label: false, input_html: { required: true }, placeholder: 'Describe what do you need help with'
+        #preview-content.tab-pane
+
+    .action-panel
+      = link_to 'Select another supporter', '#', class: '', data: { another_supporter: true }
+      = f.submit "Ask for help", class: 'btn btn-primary'

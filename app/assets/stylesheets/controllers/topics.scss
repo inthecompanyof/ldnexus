@@ -72,3 +72,14 @@ ul.supporters {
   background: $darken_background_color;
   border-radius: 3px;
 }
+
+.pic-holder {
+  position: absolute;
+  top: 0px;
+  left: 15px;
+}
+
+
+@media (min-width: $screen-md-min) {
+  .support-form { padding-left: 100px; }
+}
