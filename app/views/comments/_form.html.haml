@@ -7,12 +7,12 @@
         .arrow
         .markdown-heading
           %ul
-            %li.active= link_to 'Write', '#write-content', data: { toggle: 'tab' }, id: 'write-tab'
-            %li= link_to 'Preview', '#preview-content', data: { toggle: 'tab' }, id: 'preview-tab'
+            %li.active= link_to '', '#write-content', data: { toggle: 'tab' }, id: 'write-tab', class: 'action-icon'
+            %li= link_to '', '#preview-content', data: { toggle: 'tab' }, id: 'preview-tab', class: 'action-icon'
 
         .markdown-content
           #write-content.tab-pane.active
             = f.input :body, as: :text, label: false, input_html: { required: true }, placeholder: 'Leave a comment'
           #preview-content.tab-pane
-
-          = f.submit 'Comment', class: 'btn btn-success pull-right'
+      .action-panel
+        = f.submit 'Comment', class: 'btn btn-success pull-right'
