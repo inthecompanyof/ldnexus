@@ -32,3 +32,12 @@ h1, h2, h5 {
 h3, h4 {
   @include font-family($light_font_family, $light_font);
 }
+
+.header-line {
+  margin-left: auto;
+  margin-bottom: 0;
+}
+.subheader-line {
+  margin-left: auto;
+  margin-top: 0;
+}
