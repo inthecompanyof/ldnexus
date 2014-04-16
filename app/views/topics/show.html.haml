@@ -2,11 +2,14 @@
   .row
     .col-md-12
       %h1.header-line
-        = "#"
+        Need help with 
         %span.topic
           = "#{topic.small_title}?"
       %h3.subheader-line
-        = "Fear not! #{random_supporter.to_s} is here to help!"
+        Fear not!
+        %span.supporter_name
+          #{random_supporter.to_s}
+        is here to help!
   .row
     .col-md-8
       = render 'supports/form', supporter: random_supporter, topic: topic

@@ -46,10 +46,11 @@ ul.supporters {
 .supporters-list {
   margin-top: 5px;
 }
+.supporter_name {
+  text-transform: capitalize;
+}
 
 .topic_supporter {
-  margin-right: 5px;
-  text-transform: capitalize;
   &:after {
     content: ", ";
   }
