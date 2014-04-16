@@ -11,7 +11,7 @@ class TopicDecorator < Draper::Decorator
   end
 
   def supporters
-    h.raw topic.users.map{|user| h.link_to(user, user) }.join(", ")
+    topic.users
   end
 
   def show_link
