@@ -21,19 +21,19 @@
     top: 10px;
     right: 0;
     #write-tab {
-      background: image-url('icons/pencil.png') 0 0 no-repeat;
+      background: image-url('i/pencil.png') 0 0 no-repeat;
     }
 
     li.active #write-tab, li:hover #write-tab {
-      background: image-url('icons/pencil-hover.png') 0 0 no-repeat;
+      background: image-url('i/pencil-hover.png') 0 0 no-repeat;
     }
 
     #preview-tab {
-      background: image-url('icons/eye.png') 0 0 no-repeat;
+      background: image-url('i/eye.png') 0 0 no-repeat;
     }
 
     li.active #preview-tab, li:hover #preview-tab {
-      background: image-url('icons/eye-hover.png') 0 0 no-repeat;
+      background: image-url('i/eye-hover.png') 0 0 no-repeat;
     }
 
     ul {
