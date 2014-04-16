@@ -3,7 +3,7 @@
 }
 
 .bold, strong {
-  @include font-family($base_font_family, 700);
+  @include font-family($base_font_family, $bold_font);
 }
 
 a, a:hover {
@@ -26,9 +26,9 @@ $headings: (1, 41px),
 }
 
 h1, h2, h5 {
-  @include font-family($base_font_family, 700);
+  @include font-family($base_font_family, $bold_font);
 }
 
 h3, h4 {
-  @include font-family($light_font_family, 300);
+  @include font-family($light_font_family, $light_font);
 }
