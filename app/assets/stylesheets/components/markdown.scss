@@ -3,17 +3,15 @@
   border: 2px solid $border_color;
   border-radius: 5px;
   .arrow {
+    @extend %border-bottom-left;
+    @include transform(rotate(45deg));
     position: absolute;
     top: 20px;
     left: -9px;
     width: 15px;
     height: 15px;
-    border: 2px solid $border_color;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(90deg);
-    border-right: none;
-    border-top: none;
     background: white;
+    border-width: 2px;
   }
 
   .markdown-heading {
