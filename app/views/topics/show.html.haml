@@ -1,16 +1,16 @@
 .container
   .row
     .col-md-12
-      %div
+      %h1.topic-header
         = "#"
         %span.topic
           = "#{topic.small_title}?"
-      %p
+      %h3.topic-subheader
         = "Fear not! #{random_supporter.to_s} is here to help!"
   .row
     .col-md-8
       = render 'supports/form', supporter: random_supporter, topic: topic
-    .col-md-2
+    .col-md-2.hidden-xs
       #{random_supporter.gravatar(200)}
   .row
     .col-md-8
