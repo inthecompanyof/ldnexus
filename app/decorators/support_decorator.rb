@@ -4,23 +4,19 @@ class SupportDecorator < Draper::Decorator
   delegate :done?, :body, :discussed?
 
   def title
-    h.raw "#{receiver_info} asked #{user_info} for help with #{object.topic}"
+    h.raw "#{receiver_info.titleize} asked #{user_info.titleize} for help."
   end
 
   def user_info
-    user.info
+    user.to_s
   end
 
   def receiver_info
-    receiver.info
+    receiver.to_s
   end
 
-  def state_summary
-    !done? ? "asked for help" : "received help from"
-  end
-
-  def topic_summary
-    "with #{topic}"
+  def ticket_id
+    object.id
   end
 
   def action_button
@@ -36,9 +32,8 @@ class SupportDecorator < Draper::Decorator
   def skip_button
     return if done? || support.user != h.current_user
 
-    icon = h.content_tag :i, '', class: 'glyphicon glyphicon-forward'
-    h.link_to h.raw("#{icon} skip this one"), h.skip_support_path(object),
-              method: :post, class: 'btn btn-warning',
+    h.link_to h.raw("Skip"), h.skip_support_path(object),
+              method: :post,
               confirm: "Do you really don't have time for this one?"
   end
 
@@ -57,8 +52,7 @@ class SupportDecorator < Draper::Decorator
   private
 
   def finish_button
-    icon = h.content_tag(:i, nil, class: 'glyphicon glyphicon-ok')
-    h.link_to h.raw("#{icon} Mark this as done!"), h.finish_support_path(object),
+    h.link_to h.raw("Mark as resolved"), h.finish_support_path(object),
       method: :post, class: 'btn btn-success',
       confirm: 'Are you sure you are done helping? This action will also set you as a supporter for this issue.'
   end
@@ -69,4 +63,3 @@ class SupportDecorator < Draper::Decorator
       method: :post, class: 'btn btn-success'
   end
 end
-
