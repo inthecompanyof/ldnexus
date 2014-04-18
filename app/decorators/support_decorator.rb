@@ -19,6 +19,14 @@ class SupportDecorator < Draper::Decorator
     object.id
   end
 
+  def when_started?
+    "#{h.time_ago_in_words(object.created_at)} ago"
+  end
+
+  def when_finished?
+    "#{h.time_ago_in_words(object.updated_at)} ago"
+  end
+
   def action_button
     return if done? || support.receiver == h.current_user
 

@@ -7,6 +7,10 @@ class CommentDecorator < Draper::Decorator
     user.info
   end
 
+  def when?
+    "#{h.time_ago_in_words(object.created_at)} ago"
+  end
+
   def created_at
     object.created_at.to_formatted_s(:short)
   end
