@@ -2,7 +2,7 @@
   .pic-holder.hidden-xs.hidden-sm
     = current_user.gravatar(60)
 
-  = simple_form_for support, url: topic_supports_path(topic), html: { class: 'col-md-12 support-form' } do |f|
+  = simple_form_for support, url: topic_supports_path(topic), html: { class: 'col-md-12 padding-for-avatar' } do |f|
     = f.input :user_id, as: :hidden, input_html: { value: supporter.id }
     .markdown-panel
       .arrow.hidden-xs.hidden-sm
