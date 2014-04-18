@@ -62,8 +62,13 @@
     #preview-content {
       padding: 15px;
       font-size: 16px;
+      pre {
+        margin: 10px auto;
+      }
       p {
-        margin: 0;
+        font-family: $light_font_family;
+        color: $base_color;
+        margin: 0 auto 10px;
       }
     }
 
