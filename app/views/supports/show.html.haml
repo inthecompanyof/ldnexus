@@ -1,25 +1,33 @@
 .container
-  .row.support_header
-    .col-md-4
-      .pull-left #{support.receiver_info}
-    .col-md-4
-      #{support.state_summary}
-      #{support.action_button}
-      #{support.skip_button}
-      .clear-fix
-      #{support.topic_summary}
-    .col-md-4
-      .pull-right #{support.user_info}
-
-  .row.support_body
+  .row
     .col-md-12
-      %h3 The request was:
-      %blockquote.markdown-body= preserve support.body
+      .row
+        .col-xs-12.col-sm-8.col-md-7
+          %h1.header-line
+            = "##{support.ticket_id}"
+            %span.capitalize_text
+              = support.topic
+          %h3.subheader-line
+            = support.title
+        .col-xs-12.col-sm-4.col-md-5.supporter-panel
+          #{support.skip_button}
+          #{support.action_button}
 
-  .row.comments
-    = render 'comments/comments'
-    = render 'comments/form'
+  .row
+    .col-md-8
+      .row
+        .pic-holder.hidden-xs.hidden-sm
+          = current_user.gravatar(60)
 
+        .col-md-12
+          .row
+            .col-md-12.padding-for-avatar
+              .markdown-panel
+                .arrow.hidden-xs.hidden-sm
+                .markdown-content
+                  .active
+                    .tab-pane#preview-content= preserve support.body
 
-
-
+            .comments.col-md-12.padding-for-avatar
+              = render 'comments/comments'
+              = render 'comments/form'
