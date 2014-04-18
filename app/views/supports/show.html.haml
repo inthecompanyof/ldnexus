@@ -24,10 +24,35 @@
             .col-md-12.padding-for-avatar
               .markdown-panel
                 .arrow.hidden-xs.hidden-sm
-                .markdown-content
-                  .active
-                    .tab-pane#preview-content= preserve support.body
+                %blockquote.markdown-body.request-preview= preserve support.body
 
-            .comments.col-md-12.padding-for-avatar
+          .row
+            .request-history.col-md-12.padding-for-avatar
+              Request history
+          .row
+            .comments.col-xs-12.padding-for-avatar
+              .row
+                .col-xs-12.event.start
+                  .image
+                    = image_tag('i/status-new.png')
+                  .details
+                    .who
+                      %span.bold
+                        #{support.receiver.to_s.titleize}
+                      asked for help
+                    .when
+                      = support.when_started?
               = render 'comments/comments'
+              - if support.done?
+                .row
+                  .col-xs-12.event.done
+                    .image
+                      = image_tag('i/status-done.png')
+                    .details
+                      .who
+                        %span.bold
+                          #{support.user.to_s.titleize}
+                        marked as done
+                      .when
+                        = support.when_finished?
               = render 'comments/form'
