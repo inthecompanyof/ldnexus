@@ -66,7 +66,6 @@ class SupportDecorator < Draper::Decorator
   end
 
   def ack_button
-    icon = h.content_tag(:i, nil, class: 'glyphicon glyphicon-eye-open')
     h.link_to h.raw("#{icon} Acknowledge!"), h.ack_support_path(object),
       method: :post, class: 'btn btn-success'
   end
