@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
     name
   end
 
+  def has_pending_supports?
+    pending_supports_count > 0
+  end
+
   def pending_supports_count
     supports.not_done.count
   end
