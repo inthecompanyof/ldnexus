@@ -66,7 +66,7 @@ class SupportDecorator < Draper::Decorator
   end
 
   def ack_button
-    h.link_to h.raw("#{icon} Acknowledge!"), h.ack_support_path(object),
+    h.link_to h.raw("Acknowledge!"), h.ack_support_path(object),
       method: :post, class: 'btn btn-success'
   end
 end
