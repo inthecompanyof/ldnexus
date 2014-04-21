@@ -59,11 +59,15 @@ ul.supports {
 }
 
 .comment-body {
-  margin-top: 10px;
-  p { margin: 0 0 10px 0; }
   font-size: $small_font * 0.65;
+  margin-top: 10px;
+  p {
+    margin: 0 0 10px 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
-
 
 .new_comment_form_wrapper {
   position: relative;
@@ -73,7 +77,6 @@ ul.supports {
 
 #new_comment_form {
   padding-left: 75px;
-  textarea { min-height: 0; }
 }
 
 @media (min-width: $screen-sm-min) {
