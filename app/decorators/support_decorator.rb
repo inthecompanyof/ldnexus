@@ -16,7 +16,7 @@ class SupportDecorator < Draper::Decorator
   end
 
   def ticket_id
-    object.id
+    "##{object.id}"
   end
 
   def when_started?

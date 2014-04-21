@@ -4,14 +4,14 @@
       .row
         .col-xs-12.col-sm-8.col-md-7
           %h1.header-line
-            = "##{support.ticket_id}"
+            = support.ticket_id 
             %span.capitalize_text
               = support.topic
           %h3.subheader-line
             = support.title
         .col-xs-12.col-sm-4.col-md-5.supporter-panel
-          #{support.skip_button}
-          #{support.action_button}
+          = support.skip_button
+          = support.action_button
 
   .row
     .col-md-8
