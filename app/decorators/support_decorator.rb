@@ -11,7 +11,7 @@ class SupportDecorator < Draper::Decorator
     "##{object.id}"
   end
 
-  def formatted_date date
+  def formatted_date(date)
     "#{h.time_ago_in_words(date)} ago"
   end
 
@@ -29,7 +29,7 @@ class SupportDecorator < Draper::Decorator
     end
   end
 
-  def formatted_list_label params
+  def formatted_list_label(params)
     subject = h.content_tag(:strong, params[:subject])
     passive = h.content_tag(:strong, params[:passive])
     "#{subject} #{params[:action]} #{passive} in".html_safe
