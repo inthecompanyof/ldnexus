@@ -1,7 +1,7 @@
 .row.new_comment_form_wrapper
   .pic-holder.hidden-xs.hidden-sm
     = current_user.gravatar(37)
-  = simple_form_for :comment, url: support_comments_path(support), html: { id: 'new_comment_form', class: 'col-md-12'} do |f|
+  = simple_form_for :comment, url: support_comments_path(support), html: { id: 'new_comment_form', class: 'col-xs-12'} do |f|
     .markdown-panel
       .arrow.hidden-xs.hidden-sm
       .markdown-heading

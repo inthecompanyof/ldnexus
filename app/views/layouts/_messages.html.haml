@@ -1,7 +1,7 @@
 .container
   .row
     - flash_alerts.each do |alert|
-      .col-md-12
+      .col-xs-12
         .alert{ class: alert.css_class }
           %button.close{ aria: { hidden: 'true' }, data: { dismiss: 'alert' }, type: 'button' } &times;
           %div{ id: alert.id }= alert.msg
