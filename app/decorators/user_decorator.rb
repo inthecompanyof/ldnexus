@@ -20,4 +20,8 @@ class UserDecorator < Draper::Decorator
     h.content_tag :span, h.raw(h.link_to(gravatar + to_s, object)), class: 'user-info'
   end
 
+  def titleized
+    to_s.titleize
+  end
+
 end
