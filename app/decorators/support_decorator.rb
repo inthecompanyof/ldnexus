@@ -4,15 +4,7 @@ class SupportDecorator < Draper::Decorator
   delegate :done?, :body, :discussed?
 
   def title
-    h.raw "#{receiver_info.titleize} asked #{user_info.titleize} for help."
-  end
-
-  def user_info
-    user.to_s
-  end
-
-  def receiver_info
-    receiver.to_s
+    h.raw "#{receiver} asked #{user} for help."
   end
 
   def ticket_id

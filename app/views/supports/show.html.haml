@@ -28,8 +28,8 @@
               Request history
           .row
             .col-xs-12.comments.padding-for-avatar
-              = render 'comments/start'
+              = render 'comments/start', locals: { support: support }
               = render 'comments/comments'
               - if support.done?
-                = render 'comments/end'
+                = render 'comments/end', locals: { support: support }
               = render 'comments/form'
