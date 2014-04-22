@@ -1,13 +1,3 @@
 %li.support
-  %p.support_folks
-    - if support.done?
-      %strong= support.user
-      helped
-      %strong= support.receiver
-      in
-    - else
-      %strong= support.receiver
-      asked
-      %strong= support.user
-    in
+  %p.support_folks= support.folks_label
   %p.support_category= support.topic

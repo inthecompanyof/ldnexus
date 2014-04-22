@@ -23,6 +23,22 @@ class SupportDecorator < Draper::Decorator
     formatted_date object.updated_at
   end
 
+  def formatted_list_label params
+    subject = h.content_tag(:strong, params[:subject])
+    passive = h.content_tag(:strong, params[:passive])
+    "#{subject} #{params[:action]} #{passive} in".html_safe
+  end
+
+  def folks_label
+    if done?
+      params = { subject: user, action: 'helped', passive: receiver }
+    else
+      params = { subject: receiver, action: 'asked', passive: user }
+    end
+    formatted_list_label params
+  end
+
+
   def action_button
     return if done? || support.receiver == h.current_user
 
