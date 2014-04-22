@@ -5,8 +5,8 @@
     .details
       .who
         %span.bold
-          #{ comment.user.to_s.titleize }
+          = comment.user.to_s.titleize
         wrote
       .when
-        #{ comment.when? }
+        = comment.when?
       .comment-body.markdown-body= preserve comment.body
