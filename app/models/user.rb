@@ -14,6 +14,14 @@ class User < ActiveRecord::Base
     name
   end
 
+  def has_pending_supports?
+    pending_supports_count > 0
+  end
+
+  def pending_supports_count
+    supports.not_done.count
+  end
+
   def helps_with?(topic)
     @topic_ids ||= skills.pluck(:topic_id)
     @topic_ids.include?(topic.id)

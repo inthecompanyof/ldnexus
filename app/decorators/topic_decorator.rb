@@ -11,18 +11,11 @@ class TopicDecorator < Draper::Decorator
   end
 
   def supporters
-    h.raw topic.users.map{|user| h.link_to(user, user) }.join(", ")
+    topic.users
   end
 
   def show_link
     users_count > 0 ? self : "#"
   end
 
-  def show_link_text
-    if users_count > 0
-      "#{topic} - #{topic.users_count} people can help"
-    else
-      "#{topic} - Sorry, no one is available to help yet"
-    end
-  end
 end

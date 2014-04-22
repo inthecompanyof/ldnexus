@@ -1,17 +1,17 @@
-%h1.logo.row
-  %i.glyphicon.glyphicon-fire
-  Help!
-.selection_buttons
-  = link_to topics_path, class: 'btn btn-danger' do
-    %span
-      %i.glyphicon.glyphicon-fire
-      I need help
-    %small Click here to pick topic you need help with
-  = link_to skills_path, class: 'btn btn-success' do
-    %span
-      I can help
-      %i.glyphicon.glyphicon-heart
-    %small Click here to select topics you can help with
+%section.intro
+  .container
+    .row
+      .col-xs-12
+        %h3
+          We already solved
+          %strong= Support.done.count
+          requests but there are still
+          %strong= Support.not_done.count
+          requests to solve.
+
+    .row
+      .col-lg-4.col-lg-offset-4
+        = link_to 'I need help', topics_path, class: 'btn btn--lg btn--block'
 .row
   .col-md-6
     %h2 Pending help requests:
@@ -24,7 +24,5 @@
       - recent_supports.each do |support|
         %li= render support
 
-  .col-md-12.text-center
-    = link_to users_path, class: 'btn btn-primary' do
-      %i.glyphicon.glyphicon-user
-      See users ranking
+  .col-xs-12.text-center
+    = link_to 'See users ranking', users_path, class: 'btn btn-primary'

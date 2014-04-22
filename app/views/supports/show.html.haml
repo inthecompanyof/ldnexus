@@ -1,24 +1,35 @@
-.row.support_header
-  .col-md-4
-    .pull-left #{support.receiver_info}
-  .col-md-4
-    #{support.state_summary}
-    #{support.action_button}
-    #{support.skip_button}
-    .clear-fix
-    #{support.topic_summary}
-  .col-md-4
-    .pull-right #{support.user_info}
-
-.row.support_body
-  .col-md-12
-    %h3 The request was:
-    %blockquote.markdown-body= preserve support.body
-
-.row.comments
-  = render 'comments/comments'
-  = render 'comments/form'
-
-
-
-
+.container
+  .row
+    .col-xs-12
+      .row
+        .col-sm-8.col-md-7
+          %h1.header-line
+            = support.ticket_id
+            %span.capitalize_text
+              = support.topic
+          %h3.subheader-line
+            = support.title
+        .col-sm-4.col-md-5.supporter-panel
+          = support.skip_button
+          = support.action_button
+  .row
+    .col-md-8
+      .row
+        .pic-holder.hidden-xs.hidden-sm
+          = support.receiver.gravatar(60)
+        .col-xs-12
+          .row
+            .col-xs-12.padding-for-avatar
+              .markdown-panel
+                .arrow.hidden-xs.hidden-sm
+                %blockquote.markdown-body.request-preview= preserve support.body
+          .row
+            .col-xs-12.request-history.padding-for-avatar
+              Request history
+          .row
+            .col-xs-12.comments.padding-for-avatar
+              = render 'comments/start', locals: { support: support }
+              = render 'comments/comments'
+              - if support.done?
+                = render 'comments/end', locals: { support: support }
+              = render 'comments/form'

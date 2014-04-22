@@ -1,35 +1,54 @@
 .markdown-panel {
-  @extend .panel;
-  @extend .panel-default;
-
+  position: relative;
+  border: 2px solid $border_color;
+  border-radius: 5px;
   .arrow {
+    @extend %border-bottom-left;
+    @include transform(rotate(45deg));
     position: absolute;
-    top: 11px;
-    left: -2px;
-    width: 0;
-    border-color: transparent;
-    border-right-color: whitesmoke;
-    border-width: 9px;
-    border-style: solid solid outset;
+    top: 20px;
+    left: -9px;
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-width: 2px;
   }
 
   .markdown-heading {
-    @extend .panel-heading;
+    position: absolute;
+    top: 10px;
+    right: 0;
+
+    $tabs: (write, pencil),
+           (preview, eye);
+
+    @each $name, $icon in $tabs {
+      ##{$name}-tab {
+        background: image-url('i/#{$icon}.png') 0 0 no-repeat;
+      }
+      li.active ##{$name}-tab, li:hover ##{$name}-tab {
+        background: image-url('i/#{$icon}-hover.png') 0 0 no-repeat;
+      }
+    }
+
 
     ul {
       @extend .nav;
       @extend .nav-tabs;
       border-bottom: none;
-      margin-bottom: -10px;
       text-decoration: none;
+      margin: 0;
 
-      li a {
-        line-height: 15px;
-        margin-top: -4px;
-        color: #666;
-        &:hover {
-          background: none;
-          border-color: transparent;
+      li {
+        &.active {
+          .action-icon, .action-icon:hover { border: none; }
+        }
+        .action-icon {
+          border: none;
+          &:hover {
+            background: none;
+            border-color: transparent;
+          }
         }
       }
     }
@@ -39,24 +58,36 @@
     @extend .panel-body;
     @extend .tab-content;
     padding: 0px;
-    $pdg: 10px;
 
-    .tab-pane {
-      padding: $pdg;
+    .tab-pane.preview {
+      padding: 15px;
+      font-size: 16px;
+      pre {
+        margin: 10px auto;
+      }
+      p {
+        @include font-family($light_font_family, $light_font);
+        color: $base_color;
+        margin: 0 auto 10px;
+      }
     }
 
-    #preview-content {
-      min-height: 135px;
-    }
-
-    [type=submit] {
-      margin: -$pdg $pdg $pdg 0;
+    .form-group {
+      margin-bottom: 0;
     }
 
     textarea {
-      min-height: 100px;
+      min-height: 200px;
       max-height: 600px;
+      font-size: 16px;
       resize: vertical;
+      box-shadow: none;
+      border: none;
+      padding: 15px;
+      &:focus {
+        box-shadow: none;
+        border: none;
+      }
     }
   }
 }
