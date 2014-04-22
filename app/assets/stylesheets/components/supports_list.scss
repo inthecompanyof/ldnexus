@@ -48,7 +48,7 @@
       margin: -5px 0 0 0;
       font-size: 25px;
     }
-    &:hover {
+    &:not(.done):hover {
       .support__category {
         color: $active_color;
       }
