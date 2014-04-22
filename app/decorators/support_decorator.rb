@@ -19,12 +19,16 @@ class SupportDecorator < Draper::Decorator
     "##{object.id}"
   end
 
+  def formatted_date date
+    "#{h.time_ago_in_words(date)} ago"
+  end
+
   def when_started?
-    "#{h.time_ago_in_words(object.created_at)} ago"
+    formatted_date object.created_at
   end
 
   def when_finished?
-    "#{h.time_ago_in_words(object.updated_at)} ago"
+    formatted_date object.updated_at
   end
 
   def action_button
