@@ -1,58 +1,35 @@
 .container
   .row
-    .col-md-12
+    .col-xs-12
       .row
-        .col-xs-12.col-sm-8.col-md-7
+        .col-sm-8.col-md-7
           %h1.header-line
-            = support.ticket_id 
+            = support.ticket_id
             %span.capitalize_text
               = support.topic
           %h3.subheader-line
             = support.title
-        .col-xs-12.col-sm-4.col-md-5.supporter-panel
+        .col-sm-4.col-md-5.supporter-panel
           = support.skip_button
           = support.action_button
-
   .row
     .col-md-8
       .row
         .pic-holder.hidden-xs.hidden-sm
           = support.receiver.gravatar(60)
-
-        .col-md-12
+        .col-xs-12
           .row
-            .col-md-12.padding-for-avatar
+            .col-xs-12.padding-for-avatar
               .markdown-panel
                 .arrow.hidden-xs.hidden-sm
                 %blockquote.markdown-body.request-preview= preserve support.body
-
           .row
-            .request-history.col-md-12.padding-for-avatar
+            .col-xs-12.request-history.padding-for-avatar
               Request history
           .row
-            .comments.col-xs-12.padding-for-avatar
-              .row
-                .col-xs-12.event.start
-                  .image
-                    = image_tag('i/status-new.png')
-                  .details
-                    .who
-                      %span.bold
-                        #{support.receiver.to_s.titleize}
-                      asked for help
-                    .when
-                      = support.when_started?
+            .col-xs-12.comments.padding-for-avatar
+              = render 'comments/start'
               = render 'comments/comments'
               - if support.done?
-                .row
-                  .col-xs-12.event.done
-                    .image
-                      = image_tag('i/status-done.png')
-                    .details
-                      .who
-                        %span.bold
-                          #{support.user.to_s.titleize}
-                        marked as done
-                      .when
-                        = support.when_finished?
+                = render 'comments/end'
               = render 'comments/form'
