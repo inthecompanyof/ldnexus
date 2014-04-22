@@ -59,12 +59,16 @@
     @extend .tab-content;
     padding: 0px;
 
-    #preview-content {
-      min-height: 200px;
+    .tab-pane.preview {
       padding: 15px;
       font-size: 16px;
+      pre {
+        margin: 10px auto;
+      }
       p {
-        margin: 0;
+        @include font-family($light_font_family, $light_font);
+        color: $base_color;
+        margin: 0 auto 10px;
       }
     }
 
