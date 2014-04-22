@@ -37,6 +37,7 @@
 
   .support {
     margin: 18px 30px;
+    padding-left: 50px;
     list-style: none;
     &__folks {
       margin: 0;
@@ -51,6 +52,12 @@
       color: $second_color;
       font-size: 12px;
     }
+    @each $name in ('done', 'new', 'critical', 'mid', 'ok') {
+      &.#{$name} {
+        background: image-url("i/status-#{$name}.png") left 3px no-repeat;
+      }
+    }
+
   }
 
 }

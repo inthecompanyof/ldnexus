@@ -44,6 +44,9 @@ class SupportDecorator < Draper::Decorator
     formatted_list_label params
   end
 
+  def css_class
+    done? ? 'done' : 'new'
+  end
 
   def action_button
     return if done? || support.receiver == h.current_user
