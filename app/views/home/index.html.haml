@@ -24,9 +24,9 @@
           .tab-content
             .tab-pane.active#pending_requests
               %ul.supports
-                - waiting_for_help.each do |not_done|
-                  %li= render 'supports/not_done', not_done: not_done
+                - waiting_for_help.each do |support|
+                  = render support
             .tab-pane#recently_helped
               %ul.supports
                 - recent_supports.each do |support|
-                  %li= render support
+                  = render support

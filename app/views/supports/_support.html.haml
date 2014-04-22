@@ -1,9 +1,13 @@
-%strong.text-success
-  %i.glyphicon.glyphicon-heart
-  #{support.user}
-helped
-%strong.text-danger
-  %i.glyphicon.glyphicon-fire
-  #{support.receiver}
-with
-%strong.text-primary #{support.topic}
+%li.support
+  %p.support_folks
+    - if support.done?
+      %strong= support.user
+      helped
+      %strong= support.receiver
+      in
+    - else
+      %strong= support.receiver
+      asked
+      %strong= support.user
+    in
+  %p.support_category= support.topic
