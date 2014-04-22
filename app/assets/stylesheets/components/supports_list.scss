@@ -36,14 +36,18 @@
 
   .support {
     list-style: none;
-    p {
+    &__folks {
       margin: 0;
     }
     &__category {
       @extend .bold;
+      margin: -5px 0 0 0;
       font-size: 25px;
-      position: relative;
-      top: -5px
+    }
+    &__details {
+      margin: -3px 0 0 0;
+      color: $second_color;
+      font-size: 12px;
     }
   }
 
