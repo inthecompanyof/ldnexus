@@ -6,6 +6,7 @@
       @extend %border-right;
       margin: 0;
       a, a:hover {
+        margin: 0;
         @include font-family($light_font_family, $light_font);
         padding: 16px 21px;
         background: $white;
