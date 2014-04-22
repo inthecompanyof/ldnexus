@@ -13,6 +13,6 @@
         #write-content.tab-pane.active
           = f.input :body, as: :text, label: false, input_html: { required: true },
             placeholder: 'Leave a comment'
-        #preview-content.tab-pane
+        #preview-content.tab-pane.preview
     .action-panel
       = f.submit 'Comment', class: 'btn btn-success pull-right'

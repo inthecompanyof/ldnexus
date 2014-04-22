@@ -15,7 +15,7 @@
         #write-content.tab-pane.active
           = f.input :body, as: :text, label: false, input_html: { required: true },
             placeholder: 'Describe what do you need help with'
-        #preview-content.tab-pane
+        #preview-content.tab-pane.preview
 
     .action-panel
       = link_to 'Select another supporter', '#', class: '', data: { another_supporter: true }
