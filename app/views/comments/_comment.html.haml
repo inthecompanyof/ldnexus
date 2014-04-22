@@ -8,5 +8,5 @@
           = comment.user.to_s.titleize
         wrote
       .when
-        = comment.when?
+        = comment.commented_at
       .comment-body.markdown-body= preserve comment.body
