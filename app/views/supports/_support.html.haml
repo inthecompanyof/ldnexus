@@ -4,3 +4,4 @@
   %p.support__details
     = support.started_at
     = support.comments_label
+  = link_to '', support unless support.done?

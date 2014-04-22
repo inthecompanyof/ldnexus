@@ -39,6 +39,7 @@
     margin: 18px 30px;
     padding-left: 50px;
     list-style: none;
+    position: relative;
     &__folks {
       margin: 0;
     }
@@ -57,7 +58,9 @@
         background: image-url("i/status-#{$name}.png") left 3px no-repeat;
       }
     }
-
+    a {
+      @extend %box-link;
+    }
   }
 
 }
