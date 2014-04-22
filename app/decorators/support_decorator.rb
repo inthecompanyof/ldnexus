@@ -23,6 +23,12 @@ class SupportDecorator < Draper::Decorator
     formatted_date object.updated_at
   end
 
+  def comments_label
+    if object.discussed?
+      " &middot; #{h.pluralize(object.comments_count, 'comment')}".html_safe
+    end
+  end
+
   def formatted_list_label params
     subject = h.content_tag(:strong, params[:subject])
     passive = h.content_tag(:strong, params[:passive])

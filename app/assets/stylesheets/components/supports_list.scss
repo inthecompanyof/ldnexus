@@ -36,6 +36,15 @@
 
   .support {
     list-style: none;
+    p {
+      margin: 0;
+    }
+    &__category {
+      @extend .bold;
+      font-size: 25px;
+      position: relative;
+      top: -5px
+    }
   }
 
 }
