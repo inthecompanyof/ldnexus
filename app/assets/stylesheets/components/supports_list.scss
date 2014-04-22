@@ -1,0 +1,31 @@
+.supports-list {
+  .nav-tabs {
+    @extend %border-bottom;
+    margin-top: 0;
+    li {
+      @extend %border-right;
+      margin: 0;
+      a, a:hover {
+        @include font-family($light_font_family, $light_font);
+        padding: 16px 21px;
+        background: $white;
+        border: none;
+        font-size: 19px;
+      }
+      a {
+        color: $base_color;
+        &:hover {
+          color: $active_color;
+        }
+      }
+      &.active a {
+        @include font-family($base_font_family, $bold_font);
+        color: $active_color;
+      }
+      &:last-of-type {
+        border: none;
+      }
+    }
+  }
+
+}
