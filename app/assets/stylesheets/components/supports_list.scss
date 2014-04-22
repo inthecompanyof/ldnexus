@@ -48,6 +48,11 @@
       margin: -5px 0 0 0;
       font-size: 25px;
     }
+    &:hover {
+      .support__category {
+        color: $active_color;
+      }
+    }
     &__details {
       margin: -3px 0 0 0;
       color: $second_color;
