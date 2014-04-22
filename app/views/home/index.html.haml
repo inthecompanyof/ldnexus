@@ -18,13 +18,15 @@
     .row
       .col-lg-6.col-lg-offset-3
         .box
-          .row
-            %h2 Pending help requests:
-            %ul.supports
-              - waiting_for_help.each do |not_done|
-                %li= render 'supports/not_done', not_done: not_done
-          .row
-            %h2 Recently helped:
-            %ul.supports
-              - recent_supports.each do |support|
-                %li= render support
+          %ul.nav.nav-tabs
+            %li.active= link_to 'Pending help requests', '#pending_requests', data: { toggle: 'tab' }
+            %li= link_to 'Recently helped', '#recently_helped', data: { toggle: 'tab' }
+          .tab-content
+            .tab-pane.active#pending_requests
+              %ul.supports
+                - waiting_for_help.each do |not_done|
+                  %li= render 'supports/not_done', not_done: not_done
+            .tab-pane#recently_helped
+              %ul.supports
+                - recent_supports.each do |support|
+                  %li= render support
