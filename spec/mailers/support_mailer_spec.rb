@@ -10,15 +10,15 @@ describe SupportMailer do
     subject { SupportMailer.new_comment support, comment, mail_receiver }
 
     it 'contains comment text in the body' do
-      expect(subject).to have_body_text /#{comment.body}/
+      expect(subject.body).to match /#{comment.body}/
     end
 
     it 'is delivered to user' do
-      expect(subject).to deliver_to mail_receiver.email
+      expect(subject.to).to include mail_receiver.email
     end
 
     it 'contains commenter name in the subject' do
-      expect(subject).to have_subject /#{comment.user.name} added new comment/
+      expect(subject.subject).to match /#{comment.user.name} added new comment/
     end
   end
 end
