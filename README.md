@@ -98,6 +98,9 @@ irb(main):001:0> Topic.create(title: 'test category')
 irb(main):002:0> Topic.create(title: 'anoter help subject')
 => #<Topic id: 4, title: "anoter help subject">
 ```
+
+## Read more
+
 Read more about the app & story behind at [Open Source App To Support Your Culture](https://netguru.co/blog/posts/open-source-app-to-support-your-culture).
 
-Copyright (c) 2014 [Netguru](https://netguru.co), released under the New BSD License.
+Copyright (c) 2014 [Netguru](https://netguru.co). See LICENSE for further details.
