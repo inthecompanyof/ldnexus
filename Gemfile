@@ -4,7 +4,7 @@ gem 'rails', '4.1'
 gem 'sprockets', '2.11.0' # https://github.com/rails/sass-rails/issues/191
 gem 'sass', '~> 3.3.0'
 gem 'sass-rails', '~> 4.0.0'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'jbuilder'
