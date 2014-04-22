@@ -24,9 +24,8 @@ class SupportDecorator < Draper::Decorator
   end
 
   def comments_label
-    if object.discussed?
-      " &middot; #{h.pluralize(object.comments_count, 'comment')}".html_safe
-    end
+    return unless object.discussed?
+    " &middot; #{h.pluralize(object.comments_count, 'comment')}".html_safe
   end
 
   def formatted_list_label(params)
