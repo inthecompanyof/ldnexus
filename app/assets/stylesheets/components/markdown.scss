@@ -66,7 +66,7 @@
         margin: 10px auto;
       }
       p {
-        font-family: $light_font_family;
+        @include font-family($light_font_family, $light_font);
         color: $base_color;
         margin: 0 auto 10px;
       }

@@ -35,7 +35,7 @@ ul.supporters {
 }
 
 .supporters-panel {
-  font-family: $light_font_family;
+  @include font-family($light_font_family, $light_font);
   color: $base_color;
   border: 2px solid $border_color;
   background: $light_background_color;
