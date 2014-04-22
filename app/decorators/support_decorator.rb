@@ -23,11 +23,11 @@ class SupportDecorator < Draper::Decorator
     "#{h.time_ago_in_words(date)} ago"
   end
 
-  def when_started?
+  def started_at
     formatted_date object.created_at
   end
 
-  def when_finished?
+  def finished_at
     formatted_date object.updated_at
   end
 
