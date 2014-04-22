@@ -1,6 +1,6 @@
 .home {
   .intro {
-    padding: 77px 0;
+    padding: 77px 0 277px 0;
     background: image-url('home/pattern.png') $dark_background_color;
   }
   h3 {
@@ -15,6 +15,15 @@
     margin-top: 60px;
     font-size: $small_font;
     text-align: center;
+  }
+  .requests {
+    .box {
+      @extend %border-full;
+      margin-top: -200px;
+      background: $white;
+      border-color: rgba($dark_background_color, .1);
+      border-radius: 5px;
+    }
   }
 }
 .home_back {
