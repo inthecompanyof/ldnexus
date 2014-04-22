@@ -59,7 +59,7 @@
     @extend .tab-content;
     padding: 0px;
 
-    #preview-content {
+    .tab-pane.preview {
       padding: 15px;
       font-size: 16px;
       pre {
