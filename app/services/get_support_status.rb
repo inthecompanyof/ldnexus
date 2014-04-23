@@ -1,13 +1,13 @@
 class GetSupportStatus < Struct.new(:support)
-  NEW_RANGE        = 0..1
-  OK_RANGE         = 2..3
-  WORRYING_RANGE   = 4..5
+  NEW_RANGE        = 0..1.day
+  OK_RANGE         = 1.day..2.days
+  WORRYING_RANGE   = 2.days..4.days
 
   def commence!
-    days = (support.created_at.to_date..Date.today).count
-    comments_coefficient = support.discussed? ? 0 : 1
-    score = days + comments_coefficient
-    status_label_by_score(score)
+    time_diff = Time.zone.now - Time.zone.at(support.created_at)
+    score_booster = support.discussed? ? 0 : 12.hours
+    score = time_diff + score_booster
+    status_label_by_score score
   end
 
   private
