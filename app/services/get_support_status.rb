@@ -18,7 +18,7 @@ class GetSupportStatus < Struct.new(:support)
       { range: OK_RANGE, name: 'ok' },
       { range: WORRYING_RANGE, name: 'worrying' }
     ]
-    ranges.each { |r| return r[:name] if r[:range].include?(score) }
-    'critical'
+    result = ranges.find { |r| r[:range].include?(score) } || {}
+    result.fetch :name, 'critical'
   end
 end
