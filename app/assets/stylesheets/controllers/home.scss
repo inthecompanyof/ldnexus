@@ -26,7 +26,7 @@
       background: $white;
       border-color: rgba($dark_background_color, .1);
       border-radius: 5px;
-      .nav-tabs li {
+      &__tab {
         margin: 0 auto;
         text-align: center;
         width: 50%;
