@@ -29,16 +29,16 @@ class SupportDecorator < Draper::Decorator
   end
 
   def formatted_list_label(params)
-    subject = h.content_tag(:strong, params[:subject])
-    passive = h.content_tag(:strong, params[:passive])
-    "#{subject} #{params[:action]} #{passive} in".html_safe
+    active_user = h.content_tag(:strong, params[:active_user])
+    passive_user = h.content_tag(:strong, params[:passive_user])
+    "#{active_user} #{params[:action]} #{passive_user} in".html_safe
   end
 
   def folks_label
     params = if done?
-              { subject: user, action: 'helped', passive: receiver }
+              { active_user: user, action: 'helped', passive_user: receiver }
              else
-              { subject: receiver, action: 'asked', passive: user }
+              { active_user: receiver, action: 'asked', passive_user: user }
              end
     formatted_list_label params
   end
