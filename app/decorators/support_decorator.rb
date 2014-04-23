@@ -44,7 +44,7 @@ class SupportDecorator < Draper::Decorator
   end
 
   def css_class
-    status = GetSupportStatus.new(object).commence!
+    status = SupportStatus.new object
     done? ? 'done' : status
   end
 

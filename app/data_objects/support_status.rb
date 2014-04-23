@@ -1,9 +1,15 @@
-class GetSupportStatus < Struct.new(:support)
+class SupportStatus
   NEW_RANGE        = 0..1.day
   OK_RANGE         = 1.day..2.days
   WORRYING_RANGE   = 2.days..4.days
 
-  def commence!
+  attr_accessor :support
+
+  def initialize(support)
+    self.support = support
+  end
+
+  def to_s
     time_diff = Time.zone.now - Time.zone.at(support.created_at)
     score_booster = support.discussed? ? 0 : 12.hours
     score = time_diff + score_booster
