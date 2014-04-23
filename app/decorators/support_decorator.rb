@@ -35,11 +35,11 @@ class SupportDecorator < Draper::Decorator
   end
 
   def folks_label
-    if done?
-      params = { subject: user, action: 'helped', passive: receiver }
-    else
-      params = { subject: receiver, action: 'asked', passive: user }
-    end
+    params = if done?
+              { subject: user, action: 'helped', passive: receiver }
+             else
+              { subject: receiver, action: 'asked', passive: user }
+             end
     formatted_list_label params
   end
 
