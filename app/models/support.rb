@@ -17,16 +17,6 @@ class Support < ActiveRecord::Base
     comments_count > 0
   end
 
-  def status_label_by_score(score)
-    ranges = [
-      { range: NEW_RANGE, name: 'new' },
-      { range: OK_RANGE, name: 'ok' },
-      { range: WORRYING_RANGE, name: 'worrying' }
-    ]
-    ranges.each{ |r| return r[:name] if r[:range].include?(score) }
-    'critical'
-  end
-
   def status
     days = (created_at.to_date..Date.today).count
     comments_coefficient = discussed? ? 0 : 1
@@ -37,5 +27,17 @@ class Support < ActiveRecord::Base
   def comments_count
     # TODO: replace with counter cache
     comments.count
+  end
+
+  private
+
+  def status_label_by_score(score)
+    ranges = [
+      { range: NEW_RANGE, name: 'new' },
+      { range: OK_RANGE, name: 'ok' },
+      { range: WORRYING_RANGE, name: 'worrying' }
+    ]
+    ranges.each { |r| return r[:name] if r[:range].include?(score) }
+    'critical'
   end
 end
