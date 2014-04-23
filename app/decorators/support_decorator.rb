@@ -11,7 +11,7 @@ class SupportDecorator < Draper::Decorator
     "##{object.id}"
   end
 
-  def formatted_date date
+  def formatted_date(date)
     "#{h.time_ago_in_words(date)} ago"
   end
 
@@ -21,6 +21,30 @@ class SupportDecorator < Draper::Decorator
 
   def finished_at
     formatted_date object.updated_at
+  end
+
+  def comments_label
+    return unless object.discussed?
+    " &middot; #{h.pluralize(object.comments_count, 'comment')}".html_safe
+  end
+
+  def formatted_list_label(params)
+    active_user = h.content_tag(:strong, params[:active_user])
+    passive_user = h.content_tag(:strong, params[:passive_user])
+    "#{active_user} #{params[:action]} #{passive_user} in".html_safe
+  end
+
+  def folks_label
+    params =  if done?
+                { active_user: user, action: 'helped', passive_user: receiver }
+              else
+                { active_user: receiver, action: 'asked', passive_user: user }
+              end
+    formatted_list_label params
+  end
+
+  def css_class
+    done? ? 'done' : 'new'
   end
 
   def action_button
