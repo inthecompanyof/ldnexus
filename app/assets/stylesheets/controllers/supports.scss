@@ -16,6 +16,7 @@
     @include font-family($light_font_family, $light_font);
     font-size: $small_font * 0.6;
     color: $base_color;
+    word-wrap: break-word;
     margin: 0 auto 10px;
   }
 }
