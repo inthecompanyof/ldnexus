@@ -1,8 +1,4 @@
 class SupportStatus
-  NEW_RANGE        = 0..1.day
-  OK_RANGE         = 1.day..2.days
-  WORRYING_RANGE   = 2.days..4.days
-
   attr_accessor :support
 
   def initialize(support)
@@ -10,21 +6,29 @@ class SupportStatus
   end
 
   def to_s
-    time_diff = Time.zone.now - Time.zone.at(support.created_at)
-    score_booster = support.discussed? ? 0 : 12.hours
-    score = time_diff + score_booster
-    status_label_by_score score
+    StatusRange.find_by_score(score).name
   end
 
   private
 
-  def status_label_by_score(score)
-    ranges = [
-      { range: NEW_RANGE, name: 'new' },
-      { range: OK_RANGE, name: 'ok' },
-      { range: WORRYING_RANGE, name: 'worrying' }
-    ]
-    result = ranges.find { |r| r[:range].include?(score) } || {}
-    result.fetch :name, 'critical'
+  def score
+    time_diff = Time.zone.now - Time.zone.at(support.created_at)
+    score_booster = support.discussed? ? 0 : 12.hours
+    time_diff + score_booster
+  end
+
+  class StatusRange < Struct.new(:name, :range)
+    def self.all
+      [
+        new('new',      0..1.day),
+        new('ok',       1.day..2.days),
+        new('worrying', 2.days..4.days),
+        new('critical', 4.days..Float::INFINITY)
+      ]
+    end
+
+    def self.find_by_score(score)
+      all.find { |r| r.range.include?(score) }
+    end
   end
 end
