@@ -44,20 +44,7 @@ class SupportDecorator < Draper::Decorator
   end
 
   def css_class
-    done? ? 'done' : date_to_label
-  end
-
-  def date_to_label
-    case (object.created_at.to_date..Date.today).count
-    when 1
-      'new'
-    when 2..3
-      'ok'
-    when 4..5
-      'worrying'
-    else
-      'critical'
-    end
+    done? ? 'done' : object.status
   end
 
   def action_button
