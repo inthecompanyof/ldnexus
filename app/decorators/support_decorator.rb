@@ -44,7 +44,8 @@ class SupportDecorator < Draper::Decorator
   end
 
   def css_class
-    done? ? 'done' : 'new'
+    status = SupportStatus.new object
+    done? ? 'done' : status
   end
 
   def action_button

@@ -58,7 +58,7 @@
       color: $second_color;
       font-size: 12px;
     }
-    @each $name in ('done', 'new', 'critical', 'mid', 'ok') {
+    @each $name in ('done', 'new', 'critical', 'worrying', 'ok') {
       &.#{$name} {
         background: image-url("i/status-#{$name}.png") left 3px no-repeat;
       }
