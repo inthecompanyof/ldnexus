@@ -32,7 +32,7 @@ class CommentOnSupport
   end
 
   def receivers_comment?
-    support.receiver_id == user.id 
+    support.receiver_id == user.id
   end
   
 end
