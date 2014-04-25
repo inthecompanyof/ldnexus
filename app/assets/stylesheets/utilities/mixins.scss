@@ -1,0 +1,15 @@
+@mixin font-family($family, $weight) {
+  font-family: $family;
+  font-weight: $weight;
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+  overflow: hidden;
+}
+
+@mixin circle($size) {
+  @include square($size);
+  border-radius: $size;
+}

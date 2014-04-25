@@ -11,7 +11,7 @@ describe LogUserIn do
     let(:new_user){ User.new }
     let(:registration){ double(commence!: true, user: new_user)}
 
-    before{ subject.stub(registration: registration) }
+    before{ allow(subject).to receive(:registration).and_return(registration) }
 
     it "creates user if it was not created before" do
       subject.user = nil
@@ -23,7 +23,5 @@ describe LogUserIn do
       subject.commence!
       expect(session).to have_key(:user_id)
     end
-
   end
-
 end

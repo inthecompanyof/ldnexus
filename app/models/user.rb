@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :topics, through: :skills
   has_many :supports
   has_many :received_supports, as: :receiver
+  has_many :comments
 
   def name
     "#{first_name} #{last_name}"
@@ -11,6 +12,14 @@ class User < ActiveRecord::Base
 
   def to_s
     name
+  end
+
+  def has_pending_supports?
+    pending_supports_count > 0
+  end
+
+  def pending_supports_count
+    supports.not_done.count
   end
 
   def helps_with?(topic)

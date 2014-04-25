@@ -1,3 +1,4 @@
-%li.row
-  =link_to topic, class: 'btn btn-primary' do
-    #{topic} - #{topic.users_count} people can help
+.col-md-6
+  = link_to topic.show_link, class: 'item' do
+    %span.item__label= topic
+    %span.item__count= topic.users_count

@@ -1,13 +1,15 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
 
-gem 'rails', '4.0.3'
+gem 'rails', '4.1'
+gem 'sprockets', '2.11.0' # https://github.com/rails/sass-rails/issues/191
+gem 'sass', '~> 3.3.0'
 gem 'sass-rails', '~> 4.0.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
-gem 'jbuilder', '~> 1.2'
-gem 'bootstrap-sass', '>= 3.0.0.0'
+gem 'jbuilder'
+gem 'bourbon'
+gem 'bootstrap-sass'
 gem 'figaro'
 gem 'haml-rails'
 gem 'high_voltage'
@@ -28,10 +30,12 @@ group :development do
   gem 'html2haml'
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'rspec-rails', '~> 3.0.0.beta2'
 end
 
 group :production do

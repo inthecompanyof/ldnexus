@@ -1,0 +1,87 @@
+.supporter-panel {
+  margin: 20px auto 40px;
+  text-align: center;
+  a {
+    margin-left: 10px;
+  }
+}
+
+.request-preview {
+  margin: 0;
+  padding: 15px;
+  pre {
+    margin: 10px auto;
+  }
+  p {
+    @include font-family($light_font_family, $light_font);
+    font-size: $small_font * 0.6;
+    color: $base_color;
+    word-wrap: break-word;
+    margin: 0 auto 10px;
+  }
+}
+
+.request-history {
+  margin: 30px 0 20px;
+  color: $base_color;
+  font: {
+    @include font-family($light_font_family, $light_font);
+    size: $small_font * 0.8;
+  };
+}
+
+.comments {
+  @include font-family($light_font_family, $light_font);
+  color: $base_color;
+}
+
+.event {
+  margin: 10px 0;
+  .image {
+    float: left;
+  }
+  .details {
+    margin-left: 55px;
+  }
+  .who {
+    font-size: $small_font * 0.65;
+  }
+  .when {
+    line-height: 1;
+    font-size: $small_font * 0.5;
+  }
+}
+
+.comment-body {
+  font-size: $small_font * 0.65;
+  margin-top: 10px;
+  p {
+    margin: 0 0 10px 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.new_comment_form_wrapper {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: $screen-sm-min) {
+  .supporter-panel {
+    margin: 40px auto;
+    text-align: right;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .supporter-panel {
+    margin: 40px 0 40px -250px;
+    text-align: center;
+  }
+  #new_comment_form {
+    padding-left: 80px;
+  }
+}

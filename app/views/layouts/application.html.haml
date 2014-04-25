@@ -8,6 +8,7 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    %main.container{:role => "main", class: controller.controller_name }
+    = render 'layouts/navigation'
+    %main{ role: 'main', class: controller.controller_name }
       = render 'layouts/messages'
       = yield

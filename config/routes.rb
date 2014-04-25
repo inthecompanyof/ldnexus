@@ -1,4 +1,4 @@
-Help::Application.routes.draw do
+Rails.application.routes.draw do
 
   resources :skills
   resources :topics do
@@ -7,8 +7,11 @@ Help::Application.routes.draw do
   end
   resources :users
   resources :supports do
+    resources :comments, only: :create
     member do
       post :finish
+      post :skip
+      post :ack
     end
   end
 

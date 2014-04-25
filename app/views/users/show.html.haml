@@ -1,10 +1,10 @@
 .row.user_header
-  .user_info.col-md-12
-    #{user.gravatar(300)}
+  .user_info.col-xs-12
+    = user.gravatar(300)
     %h1
       #{user} helped others
       .score
-        %span #{user.supports_count}
+        %span=user.supports_count
         times
 .row
   .col-md-6
