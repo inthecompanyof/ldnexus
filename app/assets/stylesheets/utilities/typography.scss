@@ -3,8 +3,8 @@
 }
 
 body, html {
-  @include font-size(fs(7));
   color: $base_color;
+  font-size: fs(7);
   line-height: 1.6;
 }
 
