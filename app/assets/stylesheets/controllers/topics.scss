@@ -8,23 +8,8 @@ ul.topic_list, ul.supporters  {
   padding-left: 0;
   li {
     margin-bottom: 20px;
-    font-size: $small_font;
     a, input {
-      font-size: $small_font;
       width: 100%;
-    }
-  }
-}
-
-ul.supporters {
-  li {
-    input {
-      font-size: $small_font;
-    }
-  }
-  li:first-child {
-    input {
-      font-size: $small_font;
     }
   }
 }

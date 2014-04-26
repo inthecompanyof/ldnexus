@@ -1,10 +1,6 @@
 .users {
   h1 {
     text-align: center;
-    font-size: $big_font;
-  }
-  ol {
-    font-size: $small_font;
   }
   .user_header {
     margin-top: 15px;
@@ -12,11 +8,6 @@
       img {
         @extend .pull-left;
         margin-right: 15px;
-      }
-    }
-    .score {
-      span {
-        font-size: $big_font * 2.5;
       }
     }
   }

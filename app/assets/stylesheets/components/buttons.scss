@@ -1,8 +1,8 @@
 @mixin button-size($v-padding, $h-padding, $font-size, $border-radius, $line-height) {
+  @include font-size($font-size);
   padding: $v-padding $h-padding;
   border-radius: $border-radius;
   line-height: $line-height;
-  font-size: $font-size;
 }
 
 @mixin button-color($text, $background) {
