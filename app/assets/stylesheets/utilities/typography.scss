@@ -18,9 +18,9 @@ a, a:hover {
 
 @for $heading from 1 through 5 {
   h#{$heading} {
-    $font-size: fs($heading);
-    @include font-size($font-size);
-    margin: floor($font-size * 0.6);
+    $heading-size: fs($heading);
+    @include font-size($heading-size);
+    margin: floor($heading-size * 0.6);
     color: $base_color;
     line-height: 1.6;
   }
