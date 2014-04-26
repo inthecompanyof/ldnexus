@@ -2,8 +2,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
-body {
+body, html {
   color: $base_color;
+  font-size: $rem_base;
+  line-height: 1.6;
 }
 
 .bold, strong {
@@ -22,8 +24,9 @@ $headings: (1, 41px),
 
 @each $heading, $font-size in $headings {
   h#{$heading} {
-    margin: floor($font-size * 0.6);
     font-size: $font-size;
+    font-size: convert-to-rem($font-size);
+    margin: floor($font-size * 0.6);
     color: $base_color;
     line-height: 1.6;
   }
