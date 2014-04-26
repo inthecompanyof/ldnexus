@@ -1,3 +1,5 @@
+@import "markdown_github";
+
 .markdown-panel {
   position: relative;
   border: 2px solid $border_color;
@@ -60,8 +62,8 @@
     padding: 0px;
 
     .tab-pane.preview {
+      @include font-size(fs(6));
       padding: 15px;
-      font-size: 16px;
       pre {
         margin: 10px auto;
       }
@@ -77,9 +79,9 @@
     }
 
     textarea {
+      @include font-size(fs(6));
       min-height: 200px;
       max-height: 600px;
-      font-size: 16px;
       resize: vertical;
       box-shadow: none;
       border: none;

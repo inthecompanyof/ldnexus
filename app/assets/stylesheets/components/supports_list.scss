@@ -8,11 +8,11 @@
       margin: 0;
       a, a:hover {
         @include font-family($light_font_family, $light_font);
+        @include font-size(fs(5));
         margin: 0;
         padding: 16px 21px;
         background: $white;
         border: none;
-        font-size: 19px;
       }
       a {
         color: $base_color;
@@ -45,8 +45,8 @@
     }
     &__category {
       @extend .bold;
+      @include font-size(fs(3));
       margin: -5px 0 0 0;
-      font-size: 25px;
     }
     &:hover {
       .support__category {
@@ -54,9 +54,9 @@
       }
     }
     &__details {
+      @include font-size(fs(8));
       margin: -3px 0 0 0;
       color: $second_color;
-      font-size: 12px;
     }
     @each $name in ('done', 'new', 'critical', 'worrying', 'ok') {
       &.#{$name} {

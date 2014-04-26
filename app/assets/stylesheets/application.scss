@@ -5,10 +5,10 @@
 
 @import "utilities/overrides";
 @import "utilities/mixins";
+@import "utilities/functions";
 @import "utilities/typography";
 @import "utilities/shared";
 
-@import "markdown_github";
 @import "components/markdown";
 @import "components/alerts";
 @import "components/navbar";
@@ -16,7 +16,6 @@
 @import "components/items";
 @import "components/supports_list";
 
-@import "controllers/skills";
 @import "controllers/home";
 @import "controllers/topics";
 @import "controllers/users";

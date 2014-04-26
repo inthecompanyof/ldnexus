@@ -2,8 +2,10 @@
   -webkit-font-smoothing: antialiased;
 }
 
-body {
+body, html {
   color: $base_color;
+  font-size: fs(7);
+  line-height: 1.6;
 }
 
 .bold, strong {
@@ -14,16 +16,11 @@ a, a:hover {
   color: $active_color;
 }
 
-$headings: (1, 41px),
-           (2, 25px),
-           (3, 25px),
-           (4, 21px),
-           (5, 18px);
-
-@each $heading, $font-size in $headings {
+@for $heading from 1 through 5 {
   h#{$heading} {
-    margin: floor($font-size * 0.6);
-    font-size: $font-size;
+    $heading-size: fs($heading);
+    @include font-size($heading-size);
+    margin: floor($heading-size * 0.6) 0;
     color: $base_color;
     line-height: 1.6;
   }
