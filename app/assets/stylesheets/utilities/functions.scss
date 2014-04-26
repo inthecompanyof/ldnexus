@@ -4,6 +4,5 @@
 
 @function convert-to-rem($value, $base_value: $rem_base)  {
   $value: strip-unit($value) / strip-unit($base_value) * 1rem;
-  @if ($value == 0rem) { $value: 0; }
-  @return $value;
+  @return if($value == 0rem, 0, $value);
 }
