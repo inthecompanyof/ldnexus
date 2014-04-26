@@ -14,7 +14,7 @@
   }
   p {
     @include font-family($light_font_family, $light_font);
-    font-size: $small_font * 0.6;
+    @include font-size(fs(6));
     color: $base_color;
     word-wrap: break-word;
     margin: 0 auto 10px;
@@ -26,7 +26,7 @@
   color: $base_color;
   font: {
     @include font-family($light_font_family, $light_font);
-    size: $small_font * 0.8;
+    @include font-size(fs(4));
   };
 }
 
@@ -44,16 +44,16 @@
     margin-left: 55px;
   }
   .who {
-    font-size: $small_font * 0.65;
+    @include font-size(fs(5));
   }
   .when {
+    @include font-size(fs(7));
     line-height: 1;
-    font-size: $small_font * 0.5;
   }
 }
 
 .comment-body {
-  font-size: $small_font * 0.65;
+  @include font-size(fs(5));
   margin-top: 10px;
   p {
     margin: 0 0 10px 0;

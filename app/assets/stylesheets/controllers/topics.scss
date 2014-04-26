@@ -51,8 +51,8 @@ ul.topic_list, ul.supporters  {
 }
 
 .supports_count {
+  @include font-size(fs(8));
   padding: 1px 5px;
-  font-size: $tiny_font;
   font-weight: $bold_font;
   color: $white;
   background: $darken_background_color;
