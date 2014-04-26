@@ -16,14 +16,9 @@ a, a:hover {
   color: $active_color;
 }
 
-$headings: (1, 41px),
-           (2, 25px),
-           (3, 25px),
-           (4, 21px),
-           (5, 18px);
-
-@each $heading, $font-size in $headings {
+@for $heading from 1 through 5 {
   h#{$heading} {
+    $font-size: map-get($font-sizes, "fs#{$heading}");
     @include font-size($font-size);
     margin: floor($font-size * 0.6);
     color: $base_color;
