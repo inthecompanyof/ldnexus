@@ -7,7 +7,6 @@
   @return if($value == 0rem, 0, $value);
 }
 
-
 // font-size shorthand
 @function fs($size) {
   @return map-get($font-sizes, "fs#{$size}");
