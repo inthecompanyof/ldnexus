@@ -3,6 +3,11 @@
   font-weight: $weight;
 }
 
+@mixin font-size($font-size) {
+  font-size: $font-size;
+  font-size: convert-to-rem($font-size);
+}
+
 @mixin square($size) {
   width: $size;
   height: $size;

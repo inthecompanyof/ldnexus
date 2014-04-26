@@ -24,8 +24,7 @@ $headings: (1, 41px),
 
 @each $heading, $font-size in $headings {
   h#{$heading} {
-    font-size: $font-size;
-    font-size: convert-to-rem($font-size);
+    @include font-size($font-size);
     margin: floor($font-size * 0.6);
     color: $base_color;
     line-height: 1.6;
