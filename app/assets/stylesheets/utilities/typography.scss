@@ -20,7 +20,7 @@ a, a:hover {
   h#{$heading} {
     $heading-size: fs($heading);
     @include font-size($heading-size);
-    margin: floor($heading-size * 0.6);
+    margin: floor($heading-size * 0.6) 0;
     color: $base_color;
     line-height: 1.6;
   }
