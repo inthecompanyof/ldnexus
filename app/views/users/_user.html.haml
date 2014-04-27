@@ -1,3 +1,5 @@
 %li.leaderboard__item
   %span #{link_to user, user}
-  helped #{user.supports_count} times!
+  %span.score
+    %span= user.supports_count
+    pts
