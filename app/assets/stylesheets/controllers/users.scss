@@ -14,7 +14,7 @@
     list-style: none;
     overflow: hidden;
 
-    &__sg {
+    &__index {
       @extend .pull-left;
       @include square($position-size);
       display: inline-block;
@@ -57,7 +57,7 @@
       3: #df8612
     );
     @for $i from 1 through 3 {
-      &:nth-of-type(#{$i}) .position__sg span {
+      &:nth-of-type(#{$i}) .position__index span {
         @include circle(28px);
         margin: 0 auto;
         text-indent: -2000px;
