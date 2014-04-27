@@ -8,4 +8,4 @@
       .col-lg-8
         %ol.leaderboard
           - users.each_with_index do |u, i|
-            = render 'user', user: u, i: i + 1
+            = render 'user', user: u, index: i + 1
