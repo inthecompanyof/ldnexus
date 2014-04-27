@@ -5,7 +5,7 @@
         %h2
           Best supporters!
     .row
-      .col-lg-12
+      .col-lg-8
         %ol.leaderboard
-          = render users
-      = render 'layouts/back_to_home'
+          - users.each_with_index do |u, i|
+            = render 'user', user: u, i: i + 1

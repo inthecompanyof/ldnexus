@@ -1,4 +1,7 @@
 %li.leaderboard__item
+  %span.position
+    %span= '%02d' % i
+  = user.gravatar(56)
   %span #{link_to user, user}
   %span.score
     %span= user.supports_count
