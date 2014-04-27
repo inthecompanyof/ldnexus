@@ -1,6 +1,7 @@
 .leaderboard {
   @extend %border-top;
   -webkit-padding-start: 0;
+
   .position {
     $position-size: 55px;
     @extend %border-bottom;
@@ -11,6 +12,7 @@
     position: relative;
     list-style: none;
     overflow: hidden;
+
     &__sg {
       @extend .pull-left;
       @include square($position-size);
@@ -41,8 +43,24 @@
     a {
       @extend %box-link;
     }
+
     &:hover {
       background: $box_background_color;
     }
+
+    $platform-colors: (
+      1: #fed81c,
+      2: #dadada,
+      3: #df8612
+    );
+    @for $i from 1 through 3 {
+      &:nth-of-type(#{$i}) .position__sg span {
+        @include circle(28px);
+        margin: 0 auto;
+        text-indent: -2000px;
+        background: map-get($platform-colors, $i) image-url('i/star.png') center center no-repeat;
+      }
+    }
+
   }
 }
