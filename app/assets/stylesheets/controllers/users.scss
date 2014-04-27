@@ -1,30 +1,45 @@
 .leaderboard {
   @extend %border-top;
   -webkit-padding-start: 0;
-  &__item {
-    $item-size: 56px;
+  .position {
+    $position-size: 55px;
     @extend %border-bottom;
     @include font-size(fs(4));
     @include font-family($light_font-family, 300);
     padding: 0 16px 0 0;
+    height: $position-size;
+    position: relative;
     list-style: none;
-    .position {
+    overflow: hidden;
+    &__sg {
       @extend .pull-left;
-      @include square($item-size);
+      @include square($position-size);
       display: inline-block;
       text-align: center;
       span {
         @extend %centered-verticaly;
       }
     }
-    .score {
+    &__score, &__name {
+      line-height: $position-size - 3px;
+    }
+    &__score {
       @extend .pull-right;
       > span {
         @extend .bold;
       }
     }
+    &__name {
+      padding-left: $position-size + 18px;
+    }
     .user_avatar {
+      position: absolute;
+      top: 0;
+      left: $position-size;
       display: inline;
+    }
+    a {
+      @extend %box-link;
     }
   }
 }
