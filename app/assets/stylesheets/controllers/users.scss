@@ -1,3 +1,13 @@
 .user_avatar {
   border-radius: 50%;
 }
+
+.leaderboard {
+  @extend %border-top;
+  -webkit-padding-start: 0;
+  &__item {
+    @extend %border-bottom;
+    list-style: decimal-leading-zero;
+    list-style-position: inside;
+  }
+}
