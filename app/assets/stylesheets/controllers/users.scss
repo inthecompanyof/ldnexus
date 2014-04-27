@@ -41,5 +41,8 @@
     a {
       @extend %box-link;
     }
+    &:hover {
+      background: $box_background_color;
+    }
   }
 }
