@@ -83,10 +83,11 @@ class SupportDecorator < Draper::Decorator
   private
 
   def thanks_for_help_button
-    finish_button "I've received help from #{user}", "Are you sure? #{user} will receive a credit for that."
+    finish_button "I've received help from #{user}",
+                  "Are you sure? #{user} will receive a credit for that."
   end
 
-  def finish_button(text = nil, confirmation = nil )
+  def finish_button(text = nil, confirmation = nil)
     text ||= 'Mark as resolved'
     confirmation ||= 'Are you sure you are done helping? This action will also
                       set you as a supporter for this issue.'
