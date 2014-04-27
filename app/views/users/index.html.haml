@@ -1,6 +1,11 @@
-%h1.text-danger
-  %i.glyphicon.glyphicon-heart
-  Best supporters!
-%ol.users.col-md-6.col-md-offset-3
-  = render users
-= render 'layouts/back_to_home'
+%section.leaderboard
+  .container
+    .row
+      .col-lg-12
+        %h2
+          Best supporters!
+    .row
+      .col-lg-12
+        %ol.users
+          = render users
+      = render 'layouts/back_to_home'
