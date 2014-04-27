@@ -33,9 +33,11 @@
       }
     }
     &__name {
-      padding-left: $position-size + 18px;
+      padding-left: $position-size + 13px;
     }
     .user_avatar {
+      @include circle(45px);
+      margin: 5px;
       position: absolute;
       top: 0;
       left: $position-size;
