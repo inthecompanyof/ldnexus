@@ -1,11 +1,12 @@
 $base_color: #525771;
 $second_color: lighten($base_color, 18%);
 $active_color: #ffa529;
-$border_color: #dce0e4;
+$border_color: #edf3f7;
 $darken_background_color: #8b8e9d;
 $dark_background_color: #2f353e;
 $light_background_color: #fefefe;
 $inversed_base_color: #909db0;
+$box_background_color: lighten($border-color, 4%);
 
 $white: #fff;
 

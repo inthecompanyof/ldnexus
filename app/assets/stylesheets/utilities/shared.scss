@@ -34,3 +34,10 @@ $directions: left right center justify;
   right: 0;
   position: absolute;
 }
+
+%centered-verticaly {
+  @include transform(translateY(-50%));
+  position: relative;
+  top: 50%;
+  display: block;
+}
