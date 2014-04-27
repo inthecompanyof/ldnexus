@@ -11,10 +11,22 @@ describe FinishSupport do
 
     before { allow(support).to receive(:save!) }
 
-    it "reassigns user support" do
-      support.user = another_user
-      subject.commence!
-      expect(support.user).to eq(subject.user)
+    describe "reassigns user support" do
+      context 'to user finishing the support' do
+        it 'when user is some other user than the one requesting help' do
+          support.user = another_user
+          subject.commence!
+          expect(support.user).to eq(subject.user)
+        end
+      end
+      context 'to original user assigned to support' do
+        it 'when finishing user is the one requesting help' do
+          support.receiver = user
+          support.user = another_user
+          subject.commence!
+          expect(support.user).to eq(another_user)
+        end
+      end
     end
 
     it "finishes support" do
