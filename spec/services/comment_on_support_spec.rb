@@ -21,7 +21,8 @@ describe CommentOnSupport do
 
   describe "#subscribers" do
     before {
-      subject.support.stub_chain(:comments, :pluck).and_return([11, 12, 13, user.id])
+      subject.support.stub_chain(:comments, :pluck)
+                      .and_return([11, 12, 13, user.id])
     }
     after { subject.subscribers }
 
@@ -32,7 +33,7 @@ describe CommentOnSupport do
     context "commenting user is receiver of support" do
       it "returns all related users without receiver of support" do
         subject.stub(receiver_id: user.id) 
-        expect(User).to receive(where).with(id: [11, 12, 13])
+        expect(User).to receive(:where).with(id: [11, 12, 13])
       end
     end
   end
