@@ -15,7 +15,8 @@ describe SkipSupport do
         expect(support).to receive(:user=).with any_of(candidates)
         expect(support).to receive :save!
         allow(CommentOnSupport).to receive(:new).and_return(double(commence!: true))
-        allow(SupportMailer).to receive(:help_me).with(support).and_return(double(deliver: true))
+        allow(SupportMailer).to receive(:help_me).with(support).and_return(
+          double(deliver: true))
         skip!
       end
 
@@ -23,7 +24,8 @@ describe SkipSupport do
         allow(support).to receive(:user=).with any_of(candidates)
         allow(support).to receive :save!
         allow(CommentOnSupport).to receive(:new).and_return(double(commence!: true))
-        expect(SupportMailer).to receive(:help_me).with(support).and_return(double(deliver: true))
+        expect(SupportMailer).to receive(:help_me).with(support).and_return(
+          double(deliver: true))
         skip!
       end
 
@@ -33,8 +35,11 @@ describe SkipSupport do
         expect(subject).to receive(:candidates).and_return([candidate])
         allow(support).to receive(:user=).with candidate
         allow(support).to receive :save!
-        comment_params = { body: "#{previous_user} skipped this support. New asignee: #{candidate}" }
-        expect(SupportMailer).to receive(:help_me).with(support).and_return(double(deliver: true))
+        comment_params = {
+          body: "#{previous_user} skipped this support. New asignee: #{candidate}"
+        }
+        expect(SupportMailer).to receive(:help_me).with(support).and_return(
+          double(deliver: true))
         expect(CommentOnSupport).to receive(:new).with(
           previous_user,
           support,
@@ -52,8 +57,10 @@ describe SkipSupport do
 
       allow(support).to receive(:user=).with(candidate)
       allow(support).to receive :save!
-      allow(SupportMailer).to receive(:help_me).with(support).and_return(double(deliver: true))
-      allow(CommentOnSupport).to receive(:new).and_return(double(commence!: true))
+      allow(SupportMailer).to receive(:help_me).with(support).and_return(
+        double(deliver: true))
+      allow(CommentOnSupport).to receive(:new).and_return(
+        double(commence!: true))
 
       skip!
 
