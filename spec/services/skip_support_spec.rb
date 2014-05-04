@@ -2,7 +2,7 @@ require_relative '../../app/services/skip_support'
 
 describe SkipSupport do
   let(:candidates) { 2.times.map { double(:user, present?: true) } }
-  let(:support) { double(:support) }
+  let(:support) { double(:support, user: double(:user)) }
   let(:skip!) { subject.commence! }
 
   subject { described_class.new support }
@@ -14,6 +14,7 @@ describe SkipSupport do
       it 'assigns and save new user to support' do
         expect(support).to receive(:user=).with any_of(candidates)
         expect(support).to receive :save!
+        allow(CommentOnSupport).to receive(:new).and_return(double(commence!: true))
         allow(SupportMailer).to receive(:help_me).with(support).and_return(double(deliver: true))
         skip!
       end
@@ -21,7 +22,24 @@ describe SkipSupport do
       it 'sends email out to the new assignee' do
         allow(support).to receive(:user=).with any_of(candidates)
         allow(support).to receive :save!
+        allow(CommentOnSupport).to receive(:new).and_return(double(commence!: true))
         expect(SupportMailer).to receive(:help_me).with(support).and_return(double(deliver: true))
+        skip!
+      end
+
+      it 'leaves a comment about skipped support' do
+        previous_user = support.user
+        candidate = candidates.sample
+        expect(subject).to receive(:candidates).and_return([candidate])
+        allow(support).to receive(:user=).with candidate
+        allow(support).to receive :save!
+        comment_params = { body: "#{previous_user} skipped this support. New asignee: #{candidate}" }
+        expect(SupportMailer).to receive(:help_me).with(support).and_return(double(deliver: true))
+        expect(CommentOnSupport).to receive(:new).with(
+          previous_user,
+          support,
+          comment_params
+        ).and_return(double(commence!: true))
         skip!
       end
     end
@@ -35,6 +53,7 @@ describe SkipSupport do
       allow(support).to receive(:user=).with(candidate)
       allow(support).to receive :save!
       allow(SupportMailer).to receive(:help_me).with(support).and_return(double(deliver: true))
+      allow(CommentOnSupport).to receive(:new).and_return(double(commence!: true))
 
       skip!
 

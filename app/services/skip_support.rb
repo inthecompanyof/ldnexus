@@ -1,16 +1,18 @@
 class SkipSupport < Struct.new(:support)
   require 'active_support/core_ext/string'
 
-  attr_accessor :candidate, :success
+  attr_accessor :candidate, :success, :previous_user
   attr_writer :candidates
 
   def commence!
     self.success = false
     self.candidate = next_candidate
     if can_skip?
+      self.previous_user = support.user
       support.user = candidate
       support.save!
       deliver_email
+      comment_on_support!
       self.success = true
     end
     self
@@ -40,6 +42,21 @@ class SkipSupport < Struct.new(:support)
   def deliver_email
     email = SupportMailer.help_me(support)
     email.deliver
+  end
+
+  def comment_on_support!
+    comment = CommentOnSupport.new previous_user, support, comment_params
+    comment.commence!
+  end
+
+  def comment_params
+    {
+      body: comment_body
+    }
+  end
+
+  def comment_body
+    "#{previous_user} skipped this support. New asignee: #{candidate}"
   end
 end
 
