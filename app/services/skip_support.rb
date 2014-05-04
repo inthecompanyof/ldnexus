@@ -56,7 +56,9 @@ class SkipSupport < Struct.new(:support)
   end
 
   def comment_body
-    "#{previous_user} skipped this support. New asignee: #{candidate}"
+    I18n.t('support.skip.comment',
+           previous_user: previous_user,
+           current_user: candidate)
   end
 end
 

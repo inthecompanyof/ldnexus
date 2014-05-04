@@ -3,6 +3,7 @@ en:
     skip:
       notice: As you wish, you lazy person!
       error: Sorry, but no one else is able to help. It all depends on you.
+      comment: "%{previous_user} skipped this support. New asignee: %{current_user}"
     create:
       notice: We asked %{name} to help you.
     ack:
