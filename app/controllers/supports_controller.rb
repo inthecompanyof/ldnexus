@@ -26,7 +26,8 @@ class SupportsController < ApplicationController
     acknowledge_support = AcknowledgeSupport.new current_user.object, support
     acknowledge_support.commence!
 
-    redirect_to root_path, notice: 'Support acknowledged! now get this thing done!'
+    redirect_to support_path(support),
+                notice: 'Support acknowledged! now get this thing done!'
   end
 
   def finish
