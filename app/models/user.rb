@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :comments
 
   def name
-    "#{first_name} #{last_name}"
+    "#{first_name} #{last_name}".strip
   end
 
   def to_s
