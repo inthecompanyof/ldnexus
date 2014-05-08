@@ -16,7 +16,6 @@ class CommentOnSkipping < CommentOnSupport
   end
 
   def comment_body
-    puts self
     I18n.t('support.skip.comment',
            previous_user: user,
            current_user: support_user)
