@@ -20,7 +20,7 @@ class CommentOnSupport
   end
 
   def deliver_email
-    subscribers.each { |user| SupportMailer.new_comment(support, @comment, user).deliver }
+    subscribers.each { |user| SupportMailer.new_comment(support, new_comment, user).deliver }
   end
 
   private
@@ -29,5 +29,4 @@ class CommentOnSupport
     ids = support.comments.pluck(:user_id).uniq - [user.id] + [support.receiver_id]
     User.where id: ids
   end
-  
 end
