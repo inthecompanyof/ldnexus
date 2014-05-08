@@ -35,15 +35,12 @@ describe SkipSupport do
         expect(subject).to receive(:candidates).and_return([candidate])
         allow(support).to receive(:user=).with candidate
         allow(support).to receive :save!
-        comment_params = {
-          body: "#{previous_user} skipped this support. New asignee: #{candidate}"
-        }
         expect(SupportMailer).to receive(:help_me).with(support).and_return(
           double(deliver: true))
-        expect(CommentOnSupport).to receive(:new).with(
+        expect(CommentOnSkipping).to receive(:new).with(
           previous_user,
           support,
-          comment_params
+          support.user
         ).and_return(double(commence!: true))
         skip!
       end

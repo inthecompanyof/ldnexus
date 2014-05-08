@@ -45,20 +45,8 @@ class SkipSupport < Struct.new(:support)
   end
 
   def comment_on_support!
-    comment = CommentOnSupport.new previous_user, support, comment_params
+    comment = CommentOnSkipping.new previous_user, support, support.user
     comment.commence!
-  end
-
-  def comment_params
-    {
-      body: comment_body
-    }
-  end
-
-  def comment_body
-    I18n.t('support.skip.comment',
-           previous_user: previous_user,
-           current_user: candidate)
   end
 end
 
