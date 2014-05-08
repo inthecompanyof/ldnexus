@@ -36,7 +36,4 @@ class AskForSupport
     email = SupportMailer.help_me(new_support)
     email.deliver
   end
-
-
-
 end
