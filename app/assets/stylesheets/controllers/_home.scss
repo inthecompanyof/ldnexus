@@ -1,5 +1,5 @@
+$box_offset: 200px;
 .home {
-  $box_offset: 200px;
   .intro {
     padding: 77px 0 77px + $box_offset 0;
     background: image-url('home/pattern.png') color('dark-bg');
@@ -16,23 +16,26 @@
     margin-top: 60px;
     text-align: center;
   }
-  .requests {
-    padding-bottom: 50px;
-    .box {
-      @extend %border-full;
-      margin-top: -$box_offset;
-      min-height: $box_offset + 20px;
-      background: color('white');
-      border-color: rgba(color('dark-bg'), .1);
-      border-radius: 5px;
-      &__tab {
-        margin: 0 auto;
-        text-align: center;
-        width: 50%;
-      }
-    }
-  }
 }
+
+.requests {
+  padding-bottom: 50px;
+}
+
+.supports-list {
+  padding: 0;
+  border-radius: 5px;
+  margin-top: -$box_offset;
+  min-height: $box_offset + 20px;
+  background: color('white');
+}
+
+.box__tab {
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+}
+
 .home_back {
   margin: 40px 0;
 }
