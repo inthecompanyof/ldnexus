@@ -1,20 +1,20 @@
-.row.user_header
-  .user_info.col-xs-12
-    = user.gravatar(300)
-    %h1
-      #{user} helped others
-      .score
-        %span=user.supports_count
-        times
-.row
-  .col-md-6
-    %h3 Skills
-    %ul.skills
-      - skills.each do |skill|
-        %li= render skill
-  .col-md-6
-    %h3 Support history
-    %ul.supports
-      - supports.each do |support|
-        %li= render support
-= render 'layouts/back_to_home'
+.container
+  .row
+    .col-xs-12.col-md-6
+      .user_header
+        = user.gravatar(60)
+        .user_info
+          %h1.header-line
+            #{user}
+          %h3.subheader-line
+            helped others
+            %strong=user.supports_count
+            times
+
+      %ul.user_skills
+        - skills.each do |skill|
+          %strong.user_skill= render skill
+    .col-xs-12.col-md-6
+      %ul.supports.bordered
+        - supports.each do |support|
+          = render support
