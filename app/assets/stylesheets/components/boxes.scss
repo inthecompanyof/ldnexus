@@ -1,0 +1,13 @@
+%box {
+  @extend %border-full;
+  padding: 20px;
+}
+
+.box {
+  @extend %box;
+}
+
+.box--rounded {
+  @extend %box;
+  border-radius: 3px;
+}
