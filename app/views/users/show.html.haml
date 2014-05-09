@@ -11,10 +11,10 @@
             %strong=user.supports_count
             times
 
-      %ul.user_skills
+      %ul.user_skills.box--rounded
         - skills.each do |skill|
           %strong.user_skill= render skill
     .col-xs-12.col-md-6
-      %ul.supports.bordered
+      %ul.supports.box--rounded
         - supports.each do |support|
           = render support
