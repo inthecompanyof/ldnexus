@@ -5,9 +5,8 @@
 
 .box {
   @extend %box;
-}
-
-.box--rounded {
-  @extend %box;
-  border-radius: 3px;
+  &--rounded {
+    @extend %box;
+    border-radius: 3px;
+  }
 }

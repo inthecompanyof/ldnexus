@@ -93,7 +93,7 @@
 }
 
 .user_skill {
-  &:not(:first-child):before{
+  &:not(:first-child):before {
     content: ', '
   }
   &:last-child:before {
