@@ -71,3 +71,33 @@
 
   }
 }
+
+.user_header .user_avatar {
+  float: left;
+  margin-top: 5px;
+}
+
+.user_info {
+  margin-left: 75px;
+  h1 {
+    line-height: 1;
+  }
+  h3 {
+    line-height: 1.4
+  }
+}
+
+.user_skills {
+  background: image-url('i/list.png') 20px center no-repeat;
+  padding-left: 70px;
+}
+
+.user_skill {
+  &:not(:first-child):before {
+    content: ', '
+  }
+  &:last-child:before {
+    content: 'and ';
+    font-weight: normal;
+  }
+}
