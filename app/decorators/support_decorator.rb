@@ -65,7 +65,7 @@ class SupportDecorator < Draper::Decorator
 
     h.link_to h.raw('Skip'), h.skip_support_path(object),
               method: :post,
-              confirm: "Do you really don't have time for this one?"
+              data: { confirm: "Do you really don't have time for this one?" }
   end
 
   def user
@@ -83,7 +83,7 @@ class SupportDecorator < Draper::Decorator
   private
 
   def thanks_for_help_button
-    finish_button "I've received help from #{user}",
+    finish_button "I've received help!",
                   "Are you sure? #{user} will receive a credit for that."
   end
 
@@ -93,7 +93,7 @@ class SupportDecorator < Draper::Decorator
                       set you as a supporter for this issue.'
     h.link_to h.raw(text), h.finish_support_path(object),
       method: :post,
-      confirm: confirmation,
+      data: { confirm: confirmation },
       class: 'btn btn-success'
   end
 
