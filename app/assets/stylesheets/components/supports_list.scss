@@ -29,43 +29,42 @@
       }
     }
   }
+}
 
-  .supports {
-    margin: 25px 0;
-    padding: 0;
+.supports {
+  margin: 25px 0;
+  padding: 0;
+}
+
+.support {
+  margin: 18px 30px;
+  padding-left: 50px;
+  list-style: none;
+  position: relative;
+  &__folks {
+    margin: 0;
   }
-
-  .support {
-    margin: 18px 30px;
-    padding-left: 50px;
-    list-style: none;
-    position: relative;
-    &__folks {
-      margin: 0;
-    }
-    &__category {
-      @extend .bold;
-      @include font-size(fs(3));
-      margin: -5px 0 0 0;
-    }
-    &:hover {
-      .support__category {
-        color: color('active');
-      }
-    }
-    &__details {
-      @include font-size(fs(8));
-      margin: -3px 0 0 0;
-      color: color('second');
-    }
-    @each $name in ('done', 'new', 'critical', 'worrying', 'ok') {
-      &.#{$name} {
-        background: image-url("i/status-#{$name}.png") left 3px no-repeat;
-      }
-    }
-    a {
-      @extend %box-link;
+  &__category {
+    @extend .bold;
+    @include font-size(fs(3));
+    margin: -5px 0 0 0;
+  }
+  &:hover {
+    .support__category {
+      color: color('active');
     }
   }
-
+  &__details {
+    @include font-size(fs(8));
+    margin: -3px 0 0 0;
+    color: color('second');
+  }
+  @each $name in ('done', 'new', 'critical', 'worrying', 'ok') {
+    &.#{$name} {
+      background: image-url("i/status-#{$name}.png") left 3px no-repeat;
+    }
+  }
+  a {
+    @extend %box-link;
+  }
 }
